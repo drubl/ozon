@@ -1,0 +1,38 @@
+GET /api/products Получение всех товаров
+GET /api/products/id Данные товара по id
+GET /api/products Поиск по товарам. Свойство search - поисковый запрос. Например /products?search=Уточка
+
+поля products:
+	- title;
+	- price;
+	- description;
+	- firstPhoto;
+	- secondPhoto;
+	- weight;
+
+поля customer:
+	- phone;
+	- email;
+	- password;
+	- name;
+	- birthday;
+	- gender;
+
+
+GET /api/customer/id Получение данных пользователя по id
+POST /api/customer/ Регистрация пользователя login.
+    Свойства:
+    name - Имя
+    surname - Фамилия
+    email - Поча
+    phone - Мобильный телефон
+    dateOfBirth - Дата рождения
+    gender - Пол. male-мужской, female-женски
+PUT /api/customer/ Изменение данных пользователя. Изменяются отправленные свойства. Названия Свойств те-же, что и при регистрации
+DELETE /customer/id Удаление пользователя по id
+
+GET /api/customer/id/cart Получение корзины пользователя по id
+DELETE /api/customer/id/cart/product_id Удаление покупки product_id из корзины пользователя 
+PUT /api/customer/id/cart/product_id/
+    Свойство count меняет количество товара в корзине
+POST /api/customer/id/cart/checkout Оформление заказа
