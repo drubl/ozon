@@ -26,7 +26,7 @@ class ProductView(APIView):
         serializer = ProductSerializer(data=product)
         if serializer.is_valid(raise_exception=True):
             saved_product = serializer.save()
-        return Response({'Product created': saved_producte.title}) 
+        return Response({'Product created': saved_product.title}) 
 
 
 class ProductDetailView(APIView):
@@ -41,7 +41,6 @@ class ProductDetailView(APIView):
 
     def put(self, request, id):
         saved_product = get_object_or_404(Product.objects.all(), pk=id) ## TODO Выбрать один стиль вызова 404 ошибки
-        print(saved_product)
         data = request.data
         serializer = ProductSerializer(instance=saved_product, data=data, partial=True)
         
@@ -50,4 +49,12 @@ class ProductDetailView(APIView):
 
         return Response({'Product was changed': saved_product.title})
 
+    def delete(self, request, id):
+        product = get_object_or_404(Product.objects.all(), pk=id)
+        product.delete()
+
+        return Response({'Product was delted': product.title})
+
+class CustomerView(APIView):
+    pass
 
