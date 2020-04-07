@@ -11,16 +11,20 @@ from api.serializers import ProductSerializer
 
 class ProductView(APIView):
     def get(self, request):
-        search_query = request.GET.get('search')
-        if search_query is not None:
+        search_query = request.GET.get('search', '')
+        if search_query:
             products = Product.objects.all().filter(Q(title__icontains=search_query) | Q(description__icontains=search_query))
         else:
             products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response({'products': serializer.data})
 
-    def post(self, request):
-        pass
+    # def post(self, request):
+    #     product = request.POST
+    #     serializer = ProductSerializer(data=product)
+    #     if serializer.is_valid(raise_exception=True):
+    #         product_save = serializer.save()
+    #     return Response({'Product created': f'{product_save.title}'})
         
 
 
