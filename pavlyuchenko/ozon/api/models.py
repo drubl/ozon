@@ -9,3 +9,4 @@ class Product(models.Model):
     weight = models.IntegerField()
 
 
+
