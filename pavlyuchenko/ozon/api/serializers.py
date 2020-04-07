@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from api.models import Product
+
 class ProductSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=256)
     description = serializers.CharField(max_length=512)
@@ -8,3 +10,16 @@ class ProductSerializer(serializers.Serializer):
     secondPhoto = serializers.CharField(max_length=256, source='second_image')
     weight = serializers.IntegerField()
 
+    def create(self, validated_data):
+        return Product.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.title = validated_data.get('title', instance.title)
+        instance.description = validated_data.get('description', instance.description)
+        instance.price = validated_data.get('price', instance.price)
+        instance.first_image = validated_data.get('firstPhoto', instance.first_image)
+        instance.second_image = validated_data.get('secondPhoto', instance.second_image)
+        instance.weight = validated_data.get('weight', instance.weight)
+
+        instance.save()
+        return instance
