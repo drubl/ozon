@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
+from rest_framework.generics import get_object_or_404
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
@@ -23,9 +25,8 @@ class ProductView(APIView):
         product = request.POST
         serializer = ProductSerializer(data=product)
         if serializer.is_valid(raise_exception=True):
-            product_save = serializer.save()
-        return Response({'Product created': f'{product_save.title}'})
-        
+            saved_product = serializer.save()
+        return Response({'Product created': saved_producte.title}) 
 
 
 class ProductDetailView(APIView):
@@ -37,3 +38,16 @@ class ProductDetailView(APIView):
             return Response(error, status.HTTP_404_NOT_FOUND)
         serializer = ProductSerializer(product)
         return Response(serializer.data)
+
+    def put(self, request, id):
+        saved_product = get_object_or_404(Product.objects.all(), pk=id) ## TODO Выбрать один стиль вызова 404 ошибки
+        print(saved_product)
+        data = request.data
+        serializer = ProductSerializer(instance=saved_product, data=data, partial=True)
+        
+        if serializer.is_valid(raise_exception=True):
+            saved_product = serializer.save()
+
+        return Response({'Product was changed': saved_product.title})
+
+

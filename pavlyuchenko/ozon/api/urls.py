@@ -22,5 +22,5 @@ from api.views import ProductDetailView
 
 urlpatterns = [
     path('products/', ProductView.as_view()),
-    path('products/<id>/', ProductDetailView.as_view()),
+    path('products/<int:id>/', ProductDetailView.as_view()),
 ]
