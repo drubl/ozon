@@ -8,7 +8,9 @@ from rest_framework.viewsets import ViewSet
 from rest_framework import status
 
 from api.models import Product
+from api.models import Customer
 from api.serializers import ProductSerializer
+from api.serializers import CustomerSerializer
 
 
 class ProductView(APIView):
@@ -55,6 +57,20 @@ class ProductDetailView(APIView):
 
         return Response({'Product was delted': product.title})
 
+
 class CustomerView(APIView):
+    def get(self, request, id):
+        customer = get_object_or_404(Customer.objects.all(), pk=id)
+        serializer = CustomerSerializer(customer)
+        return Response(serializer.data)
+
+    def delete(self, request, id):
+        customer = get_object_or_404(Customer.objects.all(), pk=id)
+        customer.delete()
+        return Response({'Costumer was delted', customer.name})
+
+
+class CustomerOtherView:
     pass
+
 

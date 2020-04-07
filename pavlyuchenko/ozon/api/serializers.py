@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from api.models import Product
+from api.models import Customer
 
 class ProductSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=256)
@@ -23,3 +24,8 @@ class ProductSerializer(serializers.Serializer):
 
         instance.save()
         return instance
+
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ['name', 'phone', 'password', 'email', 'birthday', 'gender']
