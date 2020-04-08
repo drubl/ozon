@@ -1,9 +1,15 @@
 from rest_framework import serializers
+from customers.models import Customer
+from products.models import Product
 
 
-class ProductsSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    title = serializers.CharField(max_length=200)
-    price = serializers.DecimalField(max_digits=10, decimal_places=2)
-    description = serializers.CharField(max_length=1000)
-    weight = serializers.IntegerField()
+class ProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+
+class CustomersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = '__all__'

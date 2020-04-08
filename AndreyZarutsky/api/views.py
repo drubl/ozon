@@ -1,28 +1,28 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.http.response import HttpResponse
+from rest_framework import generics
 
 
 from products.models import Product
-from .serializers import ProductsSerializer
+from customers.models import Customer
+from .serializers import ProductsSerializer, CustomersSerializer
 
 
-class ProductsView(APIView):
-    def get(self, request):
-        search = request.GET.get('search', '')
-        if search:
-            products = Product.objects.filter(title__icontains=search)
-        else:
-            products = Product.objects.all()
-        serializer = ProductsSerializer(products, many=True)
-        return Response({'products': serializer.data})
+class ProductsSet(generics.CreateAPIView):
+    serializer_class = ProductsSerializer
 
 
-class ProductsId(APIView):
-    def get(self, request, pk):
-        try:
-            product = Product.objects.get(pk=pk)
-        except:
-            return HttpResponse(f'<h3>Произошла ошибка. Товар с id "{pk}" не найден.</h3>')
-        serializer = ProductsSerializer(product)
-        return Response({'product': serializer.data})
+class ProductsView(generics.ListAPIView):
+    serializer_class = ProductsSerializer
+    queryset = Product.objects.all()
+
+class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ProductsSerializer
+    queryset = Product.objects.all()
+
+
+class CustomerCreate(generics.CreateAPIView):
+    serializer_class = CustomersSerializer
+
+
+class CustomerDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CustomersSerializer
+    queryset = Customer.objects.all()

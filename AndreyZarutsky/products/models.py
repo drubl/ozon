@@ -10,4 +10,4 @@ class Product(models.Model):
     weight = models.IntegerField('Вес')
 
     def __str__(self):
-        return f'{self.title}'
+        return self.title
