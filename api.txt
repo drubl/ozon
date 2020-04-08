@@ -3,6 +3,7 @@ GET /api/products/id Данные товара по id
 GET /api/products Поиск по товарам. Свойство search - поисковый запрос. Например /products?search=Уточка
 
 поля products:
+	- id
 	- title;
 	- price;
 	- description;
