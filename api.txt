@@ -11,6 +11,7 @@ GET /api/products Поиск по товарам. Свойство search - по
 	- weight;
 
 поля customer:
+	- id
 	- phone;
 	- email;
 	- password;
@@ -26,7 +27,7 @@ POST /api/customer/ Регистрация пользователя login.
     surname - Фамилия
     email - Поча
     phone - Мобильный телефон
-    dateOfBirth - Дата рождения
+    birthday - Дата рождения
     gender - Пол. male-мужской, female-женски
 PUT /api/customer/id Изменение данных пользователя. Изменяются отправленные свойства. Названия Свойств те-же, что и при регистрации
 DELETE /customer/id Удаление пользователя по id
