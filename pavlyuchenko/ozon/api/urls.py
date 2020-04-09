@@ -19,10 +19,19 @@ from django.urls import include
 
 from api.views import ProductView
 from api.views import ProductDetailView
+from api.views import CustomerDetailView
 from api.views import CustomerView
+from api.views import LoginView
+from api.views import CartView
+from api.views import PuchaseView
+
 
 urlpatterns = [
+    path('login/', LoginView.as_view()),
     path('products/', ProductView.as_view()),
+    path('customer/', CustomerView.as_view()),
+    path('puchase/', PuchaseView.as_view()),
     path('products/<int:id>/', ProductDetailView.as_view()),
-    path('customer/<int:id>/', CustomerView.as_view()),
+    path('customer/<int:id>/', CustomerDetailView.as_view()),
+    path('customer/<int:id>/cart', CartView.as_view()),
 ]
