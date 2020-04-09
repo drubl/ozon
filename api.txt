@@ -36,9 +36,9 @@ DELETE /customer/id Удаление пользователя по id
 GET /api/customer/id/cart Получение корзины пользователя по id
     Поля cart:
     - purchase Массив покупок
-    - total_price Итоговая стоимость
-    - total_weight Итоговый вес
-    - count_purchase Количество товаров в корзине
+    - totalPrice Итоговая стоимость
+    - totalWeight Итоговый вес
+    - countPurchase Количество товаров в корзине
     
 
 POST /api/customer/id/cart/product_id Добавление покупки product_id в корзину пользователя    	
