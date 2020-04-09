@@ -20,6 +20,12 @@ GET /api/products Поиск по товарам. Свойство search - по
 	- birthday;
 	- gender;
 
+поля покупки:
+	- id
+	- product - словарь с покупкой, его поля написаны выше "поля products"
+	- count
+	- price
+	- weight
 
 GET /api/customer/id Получение данных пользователя по id
 POST /api/customer/ Регистрация пользователя login.
