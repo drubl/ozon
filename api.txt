@@ -51,7 +51,7 @@ POST /api/customer/id/cart/product_id Добавление покупки produc
 DELETE /api/customer/id/cart/product_id Удаление покупки product_id из корзины пользователя 
 PUT /api/customer/id/cart/product_id/
     Свойство count меняет количество товара product_id в корзине пользователя
-POST /api/customer/id/cart/checkout Оформление заказа
+POST /api/customer/id/cart Оформление заказа
 
 POST /api/login Вход пользователя - возвращается id пользователя если почта и пароль совпадают
     Свойства:
