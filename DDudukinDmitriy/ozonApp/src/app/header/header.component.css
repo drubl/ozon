@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.logo{
+    flex: 1;
+}
+.search-form{
+    flex: 3;
+}
+.authorization-and-card{
+    display: flex;
+    font-size: 16px;
+    flex: 1;
+    align-items: flex-end;
+}
+.authorization{
+    flex: 1;
+}
+.shopping-card{
+    flex: 1;
+}
+.registration{
+    text-align: center;
+    flex: 1;
+}
+#authorization-logo, #registration-logo{
+    width: 20px;
+}
+
+#shopping-card-logo{
+    width: 20px;
+}
+.shopping-card, .authorization{
+    text-align: center;
+    margin-left: 10px;
+}
+.header_links{
+    text-decoration: none;
+    color: inherit;
+}
+.header_links:hover{
+    color: rgb(69, 113, 235);
+}

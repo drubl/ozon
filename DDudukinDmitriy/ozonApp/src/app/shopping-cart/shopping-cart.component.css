@@ -1,0 +1,14 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    margin-top: 50px;
+}
+.product_count{
+    font-size: 10px;
+    position: relative;
+    top: -15px;
+}
+.page_label{
+    margin-bottom: 50px;
+}

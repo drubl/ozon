@@ -1,0 +1,17 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.left_side_bar{
+    list-style: none;
+    color: #005bff;
+    margin-bottom: 50px;
+}
+.left_side_bar a{
+    text-decoration: none;
+}
+.left_side_bar a:visited{
+    color: #005bff ;
+}
+.left_side_bar li{
+    margin-bottom: 20px;
+}
