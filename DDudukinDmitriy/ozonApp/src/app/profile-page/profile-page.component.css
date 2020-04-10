@@ -1,0 +1,49 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    display: flex;
+    margin-top: 40px;
+}
+.side_bar{
+    flex: 1;
+}
+.accaunt_information{
+    flex: 3;
+}
+.change{
+    margin-left: 100px;
+    color: #005bff;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+.change_profile, .delete_profile{
+    color: #005bff;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+.delete_profile{
+    color:red;
+}
+.telephone_number, .e-mail{
+    margin-top: 20px;
+}
+.e-mail{
+    margin-bottom: 70px;
+}
+.personal_data{
+    margin-top: 50px;
+}
+.name_surname, .birthday, .gender{
+    margin-bottom: 30px;
+}
+.change_profile{
+    margin-bottom: 30px;
+}
+.delete_profile{
+    margin-top: 30px;
+}

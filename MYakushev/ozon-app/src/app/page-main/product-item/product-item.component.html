@@ -1,0 +1,7 @@
+<div *ngFor="let product of products" class="product-item__item" data-id="{{product.id}}">
+  <div class="product-item__item__img" style="background-image: url({{product.imgUrl}});"></div>
+  <div class="product-item__item__price">{{product.price}}</div>
+  <h4 class="product-item__item__title">{{product.title}}</h4>
+  <button class="product-item__item__button" (click)="addProduct(product)">В корзину</button>
+  <a class="product-item__item__link" href="{{product.singleLink}}"></a>
+</div>

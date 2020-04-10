@@ -1,0 +1,7 @@
+.logo-top {
+  background-size: cover;
+  background-image: url('https://cdn1.ozone.ru/s3/cms/cb/tf3/logo_ozon_24_7.svg');
+  width: 128px;
+  height: 40px;
+  display: block;
+}

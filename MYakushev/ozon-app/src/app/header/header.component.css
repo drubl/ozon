@@ -1,0 +1,16 @@
+header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+  background-color: #fff;
+}
+header .container {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+app-search-form {
+  width: 100%;
+  margin: 0 40px;
+  height: 40px;
+}

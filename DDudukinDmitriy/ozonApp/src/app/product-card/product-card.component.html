@@ -1,0 +1,12 @@
+<div class="product_card">
+    <ul class="product_list">
+        <li *ngFor="let product of productCard">
+            <div class='image_of_product' style="background-image: url({{product.firstPhoto}});"></div>
+            <div class="price"><b>{{product.price}} Р</b></div>
+            <div class="product_title">{{product.title}}</div>
+            <div class="btn_to_cart">
+                <button class="to_cart" (click)='addToCart(product)'>В корзину</button>
+            </div>
+        </li>
+    </ul>
+</div>

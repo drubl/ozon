@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'basket.apps.BasketConfig',
     'customers.apps.CustomersConfig',
     'products.apps.ProductsConfig',
     'rest_framework',
