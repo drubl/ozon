@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Product(models.Model):
     title = models.CharField(max_length=256)
     description = models.TextField(max_length=512)
@@ -20,14 +21,27 @@ class Customer(models.Model):
     birthday = models.DateField('Пароль')
     gender = models.CharField('Пол', max_length=32)
 
+    # def get_dont_checkout_cart(self): #TODO rename func
+    #     cart = self.cart_set.all().filter(is_checkout=False)
+    #     if cart.count() == 0:
+    #         cart = Cart.objects.create(customer=self)
+    #     return cart.first() #Здесь ошибка 'Cart' object has no attribute 'first'
+
+    def get_dont_checkout_cart(self):
+        try:
+            cart = self.cart_set.get(is_checkout=False)
+        except DoesNotExist:
+            cart = Cart.objects.create(customer=self)
+        return cart
+
     def __str__(self):
         return f'Покупатель {self.name}'
 
 
 class Cart(models.Model):
     purchases = models.ManyToManyField(Product, through='Purchase')
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE) #корзины many-to-one
-    is_checkout = models.BooleanField('Оформлена') #Оформленная ли корзина
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    is_checkout = models.BooleanField('Оформлена', default=False)
 
     def get_total_price(self):
         total_price = 0
