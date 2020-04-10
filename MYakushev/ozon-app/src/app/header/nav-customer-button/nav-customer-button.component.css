@@ -1,0 +1,60 @@
+.nav-customer-button__list {
+  display: flex;
+}
+.nav-customer-button__item {
+  width: 60px;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.nav-customer-button__item svg {
+  margin-top: 5px;
+  transition: color 0.2s;
+}
+.nav-customer-button__item:hover svg {
+  color: #004ed6;
+}
+.nav-customer-button__link {
+  font-size: 11px;
+  text-decoration: none;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.nav-customer-button__link:hover {
+  color: #004ed6;
+}
+
+.modal-reg {
+  display: none;
+}
+.modal-reg--show {
+  display: block;
+}
+
+.nav-customer-button__item_button {
+  position: relative;
+}
+.nav-customer-button__item_button .nav-customer-button__link span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #005bff;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
