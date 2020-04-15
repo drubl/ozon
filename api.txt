@@ -22,7 +22,8 @@ GET /api/products Поиск по товарам. Свойство search - по
 
 поля покупки(purchase):
 	- id
-	- product - словарь с покупкой, его поля написаны выше "поля products"
+	- product - словарь с покупкой, его поля 
+	написаны выше "поля products"
 	- count
 	- price
 	- weight
@@ -45,7 +46,6 @@ GET /api/customer/id/cart Получение корзины пользовате
     - totalPrice Итоговая стоимость
     - totalWeight Итоговый вес
     - countPurchase Количество товаров в корзине
-    
 
 POST /api/customer/id/cart/product_id Добавление покупки product_id в корзину пользователя    	
 DELETE /api/customer/id/cart/product_id Удаление покупки product_id из корзины пользователя 
@@ -57,6 +57,8 @@ POST /api/login Вход пользователя - возвращается id 
     Свойства:
     email
     password
+    
+    Тестовые данные пользователя email=ya@ya.ru password=123456
 
 POST  /api/logout Выход пользователя - пока заглушка
 
