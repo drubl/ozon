@@ -1,9 +1,27 @@
+from django.contrib.auth.models import User
+
 from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 
 from api.models import Product
 from api.models import Customer
 from api.models import Cart
 from api.models import Purchase
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+    
+    def create(self, validated_data):
+        user = User(
+            email = validated_data['email'],
+            username = validated_data['username']
+        )
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -30,21 +48,25 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class CustomerSerializer(serializers.ModelSerializer):
-    birthday = serializers.DateField(format="%d-%m-%Y", input_formats=['%d-%m-%Y', 'iso-8601'])
+    birthday = serializers.DateField()
+    user = UserSerializer()
     class Meta:
         model = Customer
-        fields = ['id', 'name', 'phone', 'password', 'email', 'birthday', 'gender']
+        fields = ['id', 'name', 'phone', 'email', 'birthday', 'gender', 'user']
 
     def create(self, validated_data):
-        return Customer.objects.create(**validated_data)
+        user = UserSerializer.create(UserSerializer, validated_data=validated_data.pop('user'))
+        customer = Customer.objects.create(user=user, **validated_data)
+        return customer
 
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data, user):
         instance.email = validated_data.get('email', instance.email)
         instance.name = validated_data.get('name', instance.name)
-        instance.password = validated_data.get('password', instance.password)
         instance.phone = validated_data.get('phone', instance.phone)
         instance.birthday = validated_data.get('birthday', instance.birthday)
         instance.gender = validated_data.get('gender', instance.gender)
+
+        instance.user = validated_data.get('')
 
         instance.save()
         return instance
@@ -63,7 +85,9 @@ class CartSerializer(serializers.ModelSerializer):
     purchase = PurchaseSerializer(many=True, read_only=True)
     totalPrice = serializers.IntegerField(source='get_total_price')
     totalWeight = serializers.IntegerField(source='get_total_weight')
-    countPurchase = serializers.IntegerField(source='get_total_count')
+    countPurchases = serializers.IntegerField(source='get_total_count_purchases')
+    countProducts = serializers.IntegerField(source='get_total_count_products')
+
     class Meta:
         model = Cart
-        fields = ['id', 'is_checkout', 'purchase', 'totalPrice', 'totalWeight', 'countPurchase'] 
+        fields = ['id', 'is_checkout', 'purchase', 'totalPrice', 'totalWeight', 'countPurchases', 'countProducts'] 

@@ -10,3 +10,4 @@ from api.models import (
 admin.site.register(Cart)
 admin.site.register(Customer)
 admin.site.register(Purchase)
+admin.site.register(Product)
