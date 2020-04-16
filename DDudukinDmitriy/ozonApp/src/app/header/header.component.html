@@ -3,14 +3,15 @@
         <a routerLink='/'><img src="../assets/logo.png" alt=""></a>
     </div>
     <div class="search-form">
-        <app-search-form></app-search-form>
+        <app-search-form (search)='searchHandler($event)'></app-search-form>
     </div>
     <div class="authorization-and-card">
         <div class="registration">
-            <a class="header_links" routerLink='#'>
+            <a class="header_links" (click) = 'showModal()'>
                 <img id="registration-logo" src="../assets/man.png" alt=""><br>
                 <span>Регистрация</span>
             </a>
+              <app-modal [style.display]="modalDisplay ? 'block':'none'"></app-modal>
         </div>
         <div class="authorization">
             <a class="header_links" routerLink='/profile'>

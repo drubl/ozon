@@ -6,13 +6,11 @@
             <button class="delete_changed">Удалить выбранные</button>
         </div>
         <hr>
-        <ul class="product_list">
-            <li *ngFor="let product of Addedproduct">
                 <div class="general_information_of_product">
                     <input type="checkbox" name="" id="">
-                    <div class='image_of_product' style="background-image: url({{product.firstPhoto}});"></div>
-                    <div class="product_title">{{product.title}}</div>
-                    <div class="price"><b>{{product.price}} Р</b></div>
+                    <div class='image_of_product' style="background-image: url({{shoppingCartProduct['product'].firstPhoto}})"></div>
+                    <div class="product_title">{{shoppingCartProduct['product'].title}}</div>
+                    <div class="price"><b>{{shoppingCartProduct['product'].price}}</b></div>
                     <div class='select'><select>
                             <option>1</option>
                             <option>2</option>
@@ -30,10 +28,5 @@
                     <button class="delete_product">Удалить</button>
                 </div>
                 <hr>
-            </li>
-        </ul>
-    </div>
-    <div class="checkout">
-        <app-checkout></app-checkout>
     </div>
 </div>

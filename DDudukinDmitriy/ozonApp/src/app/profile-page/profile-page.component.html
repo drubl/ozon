@@ -1,22 +1,33 @@
+<app-header></app-header>
 <div class="container">
     <div class="side_bar">
         <app-profile-side-bar></app-profile-side-bar>
     </div>
     <div class="accaunt_information">
+        <span><b>Учетная запись</b></span>
         <div class="accaunt">
-            <span><b>Учетная запись</b></span>
-            <div class="telephone_number">
-                <span style="color: gray; font-size: 10px;">телефон<br></span>
-                <span>+78888888888</span>
-                <button class="change">Изменить</button>
-            </div>
-            <div class="e-mail">
+            <div class="telephone_number_and_e-mail_information">
+                <span style="color: gray; font-size: 10px;">телефон</span><br>
+                <div *ngIf='!phoneChange; else phoneChangeTrue' class="telephone_namber">
+                    <span>+78888888888</span>
+                    <button class="change" (click)="changePhone()">Изменить</button><br>
+                </div>
                 <span style="color: gray; font-size: 10px;">Почта<br></span>
-                <span>luckee11@yandex.ru</span>
-                <button class="change">Изменить</button>
+                <div *ngIf='!eMailChange; else eMailChangeTrue' class="e-mail_change">
+                    <span>luckee11@yandex.ru</span>
+                    <button (click)='changeEMail()' class="change">Изменить</button>
+                </div>
+                <ng-template #phoneChangeTrue>
+                    <input type="text" class="phone_change" value="+78888888888">
+                    <button class="save" (click)='savePhone()'>Сохранить</button><br>
+                </ng-template>
+                <ng-template #eMailChangeTrue>
+                    <input type="text" class="e-mail_change" value="luckee11@yandex.ru">
+                    <button (click)='saveEMail()' class="save">Сохранить</button>
+                </ng-template>
             </div>
         </div>
-        <div class="personal_data">
+        <div class="personal_data" *ngIf='!personalDataChange; else personalDataChangeTrue'>
             <span><b>Личные данные</b></span>
             <div class="name_surname">
                 <span style="color: gray; font-size: 10px;">ФИО<br></span>
@@ -31,8 +42,29 @@
                 <span>Мужской</span>
             </div>
             <div class="profile_btn">
-                <button class="change_profile">Изменить личные данные</button><br>
+                <button class="change_profile" (click)='changePersonalData()'>Изменить личные данные</button><br>
                 <button class="delete_profile">Удалить профиль</button>
             </div>
         </div>
+        <ng-template #personalDataChangeTrue>
+            <div class="personal_data">
+                <span><b>Личные данные</b></span>
+                <div class="name_surname">
+                    <span style="color: gray; font-size: 10px;">ФИО<br></span>
+                    <input type="text" value="Дудукин Дмитрий Алексеевич">
+                </div>
+                <div class="birthday">
+                    <span style="color: gray; font-size: 10px;">Дата рождения<br></span>
+                    <input type="text" value="01.11.1996">
+                </div>
+                <div class="gender">
+                    <span style="color: gray; font-size: 10px;">Пол<br></span>
+                    <input type="text" value="Мужской">
+                </div>
+                <div class="profile_btn">
+                    <button class="change_profile" (click)='savePersonalData()'>Сохранить</button><br>
+                    <button class="delete_profile">Удалить профиль</button>
+                </div>
+            </div>
+        </ng-template>
     </div>

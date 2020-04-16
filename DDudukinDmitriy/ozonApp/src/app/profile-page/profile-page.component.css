@@ -11,7 +11,16 @@
 .accaunt_information{
     flex: 3;
 }
-.change{
+.accaunt{
+    display: flex;
+}
+.telephone_number_and_e-mail_information{
+    flex:1;
+}
+.buttons_change_and_save{
+    flex:1;
+}
+.change, .save{
     margin-left: 100px;
     color: #005bff;
     border: none;
@@ -32,9 +41,6 @@
 .telephone_number, .e-mail{
     margin-top: 20px;
 }
-.e-mail{
-    margin-bottom: 70px;
-}
 .personal_data{
     margin-top: 50px;
 }
@@ -46,4 +52,8 @@
 }
 .delete_profile{
     margin-top: 30px;
+}
+
+.phone_change{
+    position: relative;
 }
