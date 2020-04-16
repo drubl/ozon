@@ -1,0 +1,19 @@
+.page-cart__block-wrapper {
+  display: flex;
+}
+.page-cart__title {
+  margin-bottom: 50px;
+}
+.selected-products {
+  width: 66%;
+  margin-right: 55px;
+  background: #FFF;
+}
+.information-products {
+  width: 33%;
+  background: #FFF;
+}
+.page-cart__title sup {
+  font-size: 14px;
+  color: grey;
+}
