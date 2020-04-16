@@ -1,7 +1,9 @@
 <header>
   <div class="container">
     <app-logo></app-logo>
-    <app-search-form></app-search-form>
+    <app-search-form
+      (onClickSearchButton)="onClickSearchButton($event)"
+    ></app-search-form>
     <app-nav-customer-button></app-nav-customer-button>
   </div>
 </header>

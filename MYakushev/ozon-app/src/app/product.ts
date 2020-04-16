@@ -1,7 +1,8 @@
 export class Product {
   id: number;
-  imgUrl: string;
+  firstPhoto: string;
   title: string;
   price: string | number;
   singleLink: string;
+  description: string;
 }

@@ -9,12 +9,6 @@ import { ProductService } from '../../product.service';
 export class SelectedProductsComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
-  public productCartSum = this.productService.productsCart;
   ngOnInit(): void {
-    console.log(this.productService.productsCart);
   }
-  info(): void {
-    console.log('177777');
-  }
-
 }

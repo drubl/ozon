@@ -1,7 +1,8 @@
 import { Product } from './product';
-import { PRODUCTS} from './mock-base-products';
 import {Injectable} from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 
 export class Cart {
@@ -11,20 +12,24 @@ export class Cart {
   countPurchase?: number;
 }
 
+export class SearchProducts {
+  products: Product[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  public productsCart: [];
-  private cart: Observable<Cart> = of({purchase: [1, 2]}, {purchase: [1, 2]});
-  constructor() { }
-  addProductToCart(product): any {
-    this.productsCart.push(product);
+  private productsUrl = '/api/products/';
+  public PRODUCTS: Product[];
+  constructor(private http: HttpClient) { }
+  searchProducts(title: string): Observable<Product[]> {
+    if (!title.trim()) {
+      return of([]);
+    }
+    return this.http.get<SearchProducts>(`${this.productsUrl}?search=${title}`).pipe(map(searchProducts => searchProducts.products));
   }
-  getProducts(): Observable<Product[]> {
-    return of(PRODUCTS);
-  }
-  getCart(): Observable<Cart> {
-    return of({purchase: [1, 1]} as Cart);
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.productsUrl}/${id}`);
   }
 }

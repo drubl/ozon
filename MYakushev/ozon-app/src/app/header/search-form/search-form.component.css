@@ -32,3 +32,23 @@
 .search-form__button:hover {
   background-color: #0020ff;
 }
+.search-result {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.search-result li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  position: relative;
+}
+.search-result li:last-of-type {
+  border-bottom: 1px solid transparent;
+}
+.search-result li a {
+  display: block;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+.search-result li a:hover {
+  background-color: rgb(229, 229, 229);
+  z-index: 5;
+}

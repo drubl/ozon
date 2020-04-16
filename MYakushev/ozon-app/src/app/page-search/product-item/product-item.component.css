@@ -38,6 +38,9 @@
 .product-item__item__title {
   font-weight: 300;
   font-size: 14px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .product-item__item__button {
   width: 96px;
