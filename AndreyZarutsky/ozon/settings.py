@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'products.apps.ProductsConfig',
     'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +53,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 ROOT_URLCONF = 'ozon.urls'
 

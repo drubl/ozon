@@ -6,14 +6,13 @@ from api.models import Cart
 from api.models import Purchase
 
 
-class ProductSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    title = serializers.CharField(max_length=256)
-    description = serializers.CharField(max_length=512)
-    price = serializers.IntegerField()
+class ProductSerializer(serializers.ModelSerializer):
     firstPhoto = serializers.CharField(max_length=256, source='first_image')
     secondPhoto = serializers.CharField(max_length=256, source='second_image')
-    weight = serializers.IntegerField()
+
+    class Meta:
+        model = Product
+        fields = ['id', 'title', 'description', 'price', 'firstPhoto', 'secondPhoto', 'weight']
 
     def create(self, validated_data):
         return Product.objects.create(**validated_data)
@@ -28,6 +27,7 @@ class ProductSerializer(serializers.Serializer):
 
         instance.save()
         return instance
+
 
 class CustomerSerializer(serializers.ModelSerializer):
     birthday = serializers.DateField(format="%d-%m-%Y", input_formats=['%d-%m-%Y', 'iso-8601'])
@@ -53,16 +53,17 @@ class CustomerSerializer(serializers.ModelSerializer):
 class PurchaseSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)
     price = serializers.IntegerField(read_only=True, source='get_price')
+    weight = serializers.IntegerField(read_only=True, source='get_weight')
     class Meta:
         model = Purchase
-        fields = ['id', 'product', 'count', 'price']
+        fields = ['id', 'product', 'count', 'price', 'weight']
 
 
 class CartSerializer(serializers.ModelSerializer):
     purchase = PurchaseSerializer(many=True, read_only=True)
-    total_price = serializers.IntegerField(source='get_total_price')
-    total_weight = serializers.IntegerField(source='get_total_weight')
-    count_purchase = serializers.IntegerField(source='get_total_count')
+    totalPrice = serializers.IntegerField(source='get_total_price')
+    totalWeight = serializers.IntegerField(source='get_total_weight')
+    countPurchase = serializers.IntegerField(source='get_total_count')
     class Meta:
         model = Cart
-        fields = ['id', 'is_checkout', 'purchase', 'total_price', 'total_weight', 'count_purchase'] 
+        fields = ['id', 'is_checkout', 'purchase', 'totalPrice', 'totalWeight', 'countPurchase'] 
