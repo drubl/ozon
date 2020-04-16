@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
 import {Auth} from "./auth";
-import {Product} from "./product";
+import {Product, Products} from "./product";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Cart} from "./product.service";
 
-export class CartProducts {
-  purchase: any;
-  totalPrice: number;
-  totalWeight: any;
-  countPurchase: string | number;
-}
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-  public cartProductsUrl = `/api/customer/1/cart/`;
-  private http: HttpClient;
-
-  constructor(private auth: Auth, http: HttpClient) {
+  private auth: Auth;
+  constructor(auth: Auth, private http: HttpClient) {
+  }
+  getProductsCart(id: number): Observable<Cart> {
+    console.log('id in carService', id);
+    return this.http.get<Cart>(`/api/customer/${id}/cart/`);
   }
 }

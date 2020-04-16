@@ -5,12 +5,24 @@ import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 
-export class Cart {
-  purchase: number[];
-  totalPrice?: number;
-  totalWeight?: number;
-  countPurchase?: number;
+export class ProductInCard {
+  id: number;
+  product: Product[];
+  count: number;
+  price: number;
+  weight: number;
 }
+
+export class Cart {
+  countPurchase: any;
+  id: any;
+  is_checkout: any;
+  purchase: ProductInCard[];
+  totalPrice: any;
+  totalWeight: any;
+}
+
+
 
 export class SearchProducts {
   products: Product[];
@@ -21,7 +33,6 @@ export class SearchProducts {
 })
 export class ProductService {
   private productsUrl = '/api/products/';
-  public PRODUCTS: Product[];
   constructor(private http: HttpClient) { }
   searchProducts(title: string): Observable<Product[]> {
     if (!title.trim()) {

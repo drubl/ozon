@@ -27,7 +27,6 @@ export class SearchFormComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((title: string) => this.productService.searchProducts(title)),
     );
-    console.log('hi');
   }
 
 

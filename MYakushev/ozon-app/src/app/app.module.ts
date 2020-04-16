@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ModalRegComponent } from './header/nav-customer-button/modal-reg/modal-reg.component';
 import {FormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AppComponent,

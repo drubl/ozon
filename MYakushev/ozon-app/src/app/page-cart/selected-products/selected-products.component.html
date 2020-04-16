@@ -1,20 +1,20 @@
-<div class="page-cart__block__selected-products">
+<div class="page-cart__block__selected-products" *ngIf="productsCartInfo">
   <div class="information-products__top-block">
     <label><input type="checkbox">Выбрать всё</label>
     <button class="information-products__top-block__button" type="button">Удалить выбранные</button>
   </div>
 
   <ul class="information-products__list">
-    <li  class="information-products__item">
+    <li class="information-products__item">
       <input type="checkbox">
       <div class="information-products__item__img"
            style="background-image: url()"></div>
       <div class="information-products__item__info">
-        <h4 class="information-products__item__info__title">123</h4>
-        <p class="information-products__item__info__gram">50 грам</p>
+        <h4 class="information-products__item__info__title"></h4>
+        <p class="information-products__item__info__gram"></p>
         <button class="information-products__item__info__button">Удалить</button>
       </div>
-      <div class="information-products__item__price">123</div>
+      <div class="information-products__item__price"></div>
       <div class="information-products__item__amount-wrapper">
         <select name="" id="information-products__item__amount">
           <option>1</option>
