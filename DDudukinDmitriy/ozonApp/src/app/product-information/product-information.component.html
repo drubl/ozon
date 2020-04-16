@@ -1,5 +1,29 @@
-<div class="container">
-    <div class="photo-of-product"></div>
-    <div class="product_information_title">
+<app-header></app-header>
+<div *ngIf = 'productItemInformation' class="container" >
+  <div class="container_has_gallery_title">
+  <div class="gallery">
+        <div class="gallery_mini_photo_block">
+            <img alt="" class="gallery_mini_img" style="background-image: url();">
+        </div>
+        <div class="main_photo">
+            <img alt="" class='gallary_main_photo' style="background-image: url({{productItemInformation.firstPhoto}})">
+        </div>
+    </div>
+  <div>
+    <div class="product_information_title">{{productItemInformation.title}}</div>
+    <hr>
+    <div class="button_anchor">
+      <button class="anchor_btn">перейти к описанию</button>
+      <div class="container_right_side_bar">
+        <span class='product_price'>{{productItemInformation.price}}</span>
+        <button class="toCart">В корзине 1 шт.<br>перейти</button>
+        <button class="addToCart">+1 шт.</button>
+      </div>
+    </div>
+  </div>
+  </div>
+    <div class="product_description">
+        <strong style="font-size: 30px;">Описание</strong><br>
+        {{productItemInformation.description}}
     </div>
 </div>

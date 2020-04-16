@@ -14,3 +14,7 @@
     color: gray;
     font-size: 10px;
 }
+.total_count_price{
+  display: flex;
+  justify-content: space-between;
+}

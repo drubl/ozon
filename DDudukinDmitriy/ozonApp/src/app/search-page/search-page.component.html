@@ -1,1 +1,7 @@
-<app-product-card></app-product-card>
+<app-header (search)='searchHandler($event)'></app-header>
+<!--<p *ngIf='products.length'>По вашему запросу найдено {{products.length}} товаров</p>-->
+<ul class="product_list">
+    <li *ngFor='let product of products'>
+        <app-product-card [product]="product" (addToCart)=addToCartHandler($event)></app-product-card>
+    </li>
+</ul>

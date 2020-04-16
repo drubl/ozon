@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e246db0f-653e-4d10-8188-a09d4b8bc8b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/ProductCard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/common/search-form/search-form.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/common/search-form/search-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/common/search-form/search-form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/common/search-form/search-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/header.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/header.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/header.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/header/header.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/mock-product-card.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-card/product-card.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-card/product-card.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-card/product-card.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-card/product-card.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-information/product-information.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-information/product-information.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-information/product-information.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/product-information/product-information.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/common/profile-side-bar/profile-side-bar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/common/profile-side-bar/profile-side-bar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/common/profile-side-bar/profile-side-bar.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/common/profile-side-bar/profile-side-bar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/profile-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/profile-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/profile-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/profile-page/profile-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/search-page/search-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/search-page/search-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/search-page/search-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/search-page/search-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/checkout/checkout.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/checkout/checkout.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/checkout/checkout.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/checkout/checkout.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/shopping-cart-product/shopping-cart-product.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/shopping-cart-product/shopping-cart-product.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/shopping-cart-product/shopping-cart-product.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/common/shopping-cart-product/shopping-cart-product.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/shopping-cart.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/shopping-cart.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/shopping-cart.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/app/shopping-cart/shopping-cart.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/assets/clean.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/assets/magnifier.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/assets/man.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/assets/shopping-card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDudukinDmitriy/ozonApp/tslint.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1aY0iMfFpeU7OCDCJgfboN6JpLC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DDudukinDmitriy/ozonApp1" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e246db0f-653e-4d10-8188-a09d4b8bc8b0" name="Default Changelist" comment="" />
+      <created>1586897345800</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586897345800</updated>
+      <workItem from="1586897348410" duration="85000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="155" width="424" height="484" key="FileChooserDialogImpl" timestamp="1586897428617">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="499" y="155" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1586897428617" />
+  </component>
+</project>
