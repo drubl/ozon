@@ -35,19 +35,15 @@ def get_anonymous_customer(request):
     return anonymous_customer
 
 def create_anonymous_customer(request):
-    print('Мы пытались создать кастомера и записать его в сессию')
     anonymous_customer = Customer.objects.create()
     request.session['anon_customer_id'] = anonymous_customer.id
-    print(anonymous_customer, request.session['anon_customer_id'])
     return anonymous_customer
 
 def get_or_create_anonymous_customer(request):
     ''' Возвращает покупателя из сессии или создает нового. '''
     if request.session.get('anon_customer_id') is None:
-        print("Решили создать кастомера")
         return create_anonymous_customer(request)
     else:
-        print('Решили взять из сессии')
         return get_anonymous_customer(request)
 
 def delete_anonymous_customer_session(request):
@@ -85,7 +81,6 @@ def add_purchases_from_anonymous_customer(request, user):
 
     for anonymous_customer_purchase in anonymous_customer_purchases:
         auth_customer_cart.purchase_set.add(anonymous_customer_purchase)
-        print("Товара не было в корзине авторизированного пользователя и мы добавлили его из анонимного покупателя")
 
         
 class TESTView(APIView):
@@ -267,7 +262,6 @@ class CartView(APIView):
         ''' Оформление корзины. '''
         if request.user.is_anonymous:
             return Response({'Need a register or logout user': ''}, status=status.HTTP_401_UNAUTHORIZED)
-
         customer = request.user.customer
         cart = customer.get_dont_checkout_cart()
         cart.is_checkout = True
