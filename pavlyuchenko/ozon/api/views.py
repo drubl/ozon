@@ -190,10 +190,15 @@ class LoginView(APIView):
             if has_anonymous_customer(request):
                 add_purchases_from_anonymous_customer(request, user)
                 login(request, user)
-                return Response({"user": user.username})
+                response = Response({'user': user.username})
+                response.set_cookie('is_login', 'True', 43200)
+                return response
             else:
                 login(request, user)
-                return Response({'user': user.username})
+                # request.set_cookie('is_login', 'True', 43200)
+                response = Response({'user': user.username})
+                response.set_cookie('is_login', 'True', 43200)
+                return response
         else:
             return Response({"error": "Wrong Credentials"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -202,7 +207,9 @@ class LogoutView(APIView):
     permission_classes = [AllowAny]
     def get(self, request):
         logout(request)
-        return Response(str(request.user.is_anonymous))
+        response = Response(str(request.user.is_anonymous))
+        response.set_cookie('is_login', 'False', 43200)
+        return response
 
 
 class PurchaseView(APIView):
