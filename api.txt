@@ -1,4 +1,4 @@
-GET /api/products Получение всех товаров
+GET /api/products/ Получение всех товаров
 GET /api/products/id Данные товара по id
 GET /api/products Поиск по товарам. Свойство search - поисковый запрос. Например /products?search=Уточка
 
@@ -22,12 +22,13 @@ GET /api/products Поиск по товарам. Свойство search - по
 
 поля покупки(purchase):
 	- id
-	- product - словарь с покупкой, его поля написаны выше "поля products"
+	- product - словарь с покупкой, его поля 
+	написаны выше "поля products"
 	- count
 	- price
 	- weight
 
-GET /api/customer/id Получение данных пользователя по id
+GET /api/customer/id/ Получение данных пользователя по id
 POST /api/customer/ Регистрация пользователя login.
     Свойства:
     name - Имя
@@ -36,27 +37,28 @@ POST /api/customer/ Регистрация пользователя login.
     phone - Мобильный телефон
     birthday - Дата рождения
     gender - Пол. male-мужской, female-женски
-PUT /api/customer/id Изменение данных пользователя. Изменяются отправленные свойства. Названия Свойств те-же, что и при регистрации
-DELETE /customer/id Удаление пользователя по id
+PUT /api/customer/id/ Изменение данных пользователя. Изменяются отправленные свойства. Названия Свойств те-же, что и при регистрации
+DELETE /customer/id/ Удаление пользователя по id
 
-GET /api/customer/id/cart Получение корзины пользователя по id
+GET /api/customer/id/cart/ Получение корзины пользователя по id
     Поля cart:
     - purchase Массив покупок
     - totalPrice Итоговая стоимость
     - totalWeight Итоговый вес
     - countPurchase Количество товаров в корзине
-    
 
-POST /api/customer/id/cart/product_id Добавление покупки product_id в корзину пользователя    	
-DELETE /api/customer/id/cart/product_id Удаление покупки product_id из корзины пользователя 
+POST /api/customer/id/cart/product_id/ Добавление покупки product_id в корзину пользователя    	
+DELETE /api/customer/id/cart/product_id/ Удаление покупки product_id из корзины пользователя 
 PUT /api/customer/id/cart/product_id/
     Свойство count меняет количество товара product_id в корзине пользователя
 POST /api/customer/id/cart Оформление заказа
 
-POST /api/login Вход пользователя - возвращается id пользователя если почта и пароль совпадают
+POST /api/login/ Вход пользователя - возвращается id пользователя если почта и пароль совпадают
     Свойства:
     email
     password
+    
+    Тестовые данные пользователя email=ya@ya.ru password=123456
 
-POST  /api/logout Выход пользователя - пока заглушка
+POST  /api/logout/ Выход пользователя - пока заглушка
 

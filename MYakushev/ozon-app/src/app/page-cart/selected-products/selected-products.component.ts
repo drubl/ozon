@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../product.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProductService} from '../../product.service';
+import {Cart} from "../../cart";
+import {Product, Products} from "../../product";
 
 @Component({
   selector: 'app-selected-products',
@@ -7,14 +9,8 @@ import { ProductService } from '../../product.service';
   styleUrls: ['./selected-products.component.css']
 })
 export class SelectedProductsComponent implements OnInit {
-
+  @Input() productsCartInfo: Products[];
   constructor(private productService: ProductService) { }
-  public productCartSum = this.productService.productsCart;
   ngOnInit(): void {
-    console.log(this.productService.productsCart);
   }
-  info(): void {
-    console.log('177777');
-  }
-
 }

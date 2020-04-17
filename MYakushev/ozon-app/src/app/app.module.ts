@@ -6,8 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { SearchFormComponent } from './header/search-form/search-form.component';
 import { NavCustomerButtonComponent } from './header/nav-customer-button/nav-customer-button.component';
-import { PageMainComponent } from './page-main/page-main.component';
-import { ProductItemComponent } from './page-main/product-item/product-item.component';
+import { PageSearchComponent } from './page-search/page-search.component';
+import { ProductItemComponent } from './page-search/product-item/product-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageCartComponent } from './page-cart/page-cart.component';
 import { SelectedProductsComponent } from './page-cart/selected-products/selected-products.component';
@@ -18,6 +18,10 @@ import { PageCustomerComponent } from './page-customer/page-customer.component';
 import { PriceAndAddCartComponent } from './page-product/price-and-add-cart/price-and-add-cart.component';
 import { CustomerNavComponent } from './page-customer/customer-nav/customer-nav.component';
 import { CustomerInfoComponent } from './page-customer/customer-info/customer-info.component';
+import {HttpClientModule} from "@angular/common/http";
+import { ModalRegComponent } from './header/nav-customer-button/modal-reg/modal-reg.component';
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,7 @@ import { CustomerInfoComponent } from './page-customer/customer-info/customer-in
     LogoComponent,
     SearchFormComponent,
     NavCustomerButtonComponent,
-    PageMainComponent,
+    PageSearchComponent,
     ProductItemComponent,
     PageCartComponent,
     SelectedProductsComponent,
@@ -36,11 +40,14 @@ import { CustomerInfoComponent } from './page-customer/customer-info/customer-in
     PageCustomerComponent,
     PriceAndAddCartComponent,
     CustomerNavComponent,
-    CustomerInfoComponent
+    CustomerInfoComponent,
+    ModalRegComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,17 @@
-<div class="container">
+<app-header></app-header>
+<div class="container" *ngIf="product">
   <div class="product-block-wrapper">
-    <app-product-gallery></app-product-gallery>
+    <app-product-gallery [productImg]="product.firstPhoto"></app-product-gallery>
     <div class="product-block__info">
-      <h2 class="product-block__info__title">Заголовок</h2>
+      <h2 class="product-block__info__title">{{product.title}}</h2>
       <div class="product-block__info-wrapper">
         <div class="product-block__info__text"><a href="">Перейти к описанию</a></div>
-        <app-price-and-add-cart></app-price-and-add-cart>
+        <app-price-and-add-cart [productPrice]="product.price"></app-price-and-add-cart>
       </div>
     </div>
   </div>
   <div class="product-block__desc">
     <h2 class="product-block__desc__title">Описание</h2>
-    <p class="product-block__desc__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate, veritatis. Aut, cum cumque odio quas quisquam reiciendis repellendus suscipit vero voluptas? Exercitationem fugit, quis. Aliquam animi, at consequuntur debitis dolores ducimus ea enim fugit iure iusto mollitia nesciunt quae quaerat quam quas quis quisquam quo repellendus similique vero voluptate.</p>
+    <p class="product-block__desc__text">{{product.description}}</p>
   </div>
 </div>

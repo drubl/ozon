@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Cart, ProductService} from '../../product.service';
 import {Observable, of} from 'rxjs';
+import {Auth} from "../../auth";
 
 @Component({
   selector: 'app-nav-customer-button',
@@ -8,9 +9,9 @@ import {Observable, of} from 'rxjs';
   styleUrls: ['./nav-customer-button.component.css']
 })
 export class NavCustomerButtonComponent implements OnInit {
-  constructor(private productService: ProductService) {
+  toggleModal = true;
+  constructor(private productService: ProductService, public auth: Auth) {
   }
-  public productCartSum = this.productService.productsCart;
   ngOnInit(): void {
   }
 
