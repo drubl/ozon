@@ -61,3 +61,9 @@ POST /api/login/ Вход пользователя - возвращается id
     password
 
 GET  /api/logout/ Выход пользователя
+
+Test user:
+{
+	"username": "user1",
+	"password": "123123123"
+}
