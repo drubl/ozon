@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from customers.models import Customer
-from products.models import Product
-from basket.models import Basket, Order
+from customers.infrastructure.models import Customer
+from products.infrastructure.models import Product
+from basket.infrastructure.models import Basket, Order
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 

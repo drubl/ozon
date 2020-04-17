@@ -1,102 +1,101 @@
-import json
-from collections import defaultdict
 from django.http import HttpResponse
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth import authenticate
-from .serializers import ProductsSerializer, CustomersSerializer, BasketSerializer, \
-    OrderSerializer, UserSerializer
-from rest_framework import status
-from api.api_tools import check_email, check_busket, create_customer_basket
+from .serializers import BasketSerializer
+from api.api_tools import check_busket, create_customer_basket
 
 
-from products.models import Product
-from customers.models import Customer
-from basket.models import Basket, Order
-from django.contrib.auth.models import User
+from products.infrastructure.models import Product
+from customers.infrastructure.models import Customer
+from basket.infrastructure.models import Basket, Order
 
 
-class TESTPermission(APIView):
-    # permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        request.session['order'] = []
-        request.session['order'].append(('homa', 2))
-        print(dict(request.session))
-        print(request.session.session_key)
-        print(request.session['order'])
-        print(bool(request.session.get('basket_id')))
-        print(request.user.is_anonymous)
-        print(request.user.id)
-        return Response('Вы авторизированный пользователь.')
-
-
-class create_customer_test(APIView):
-    authentication_classes = ()
-    permission_classes = ()
-    def post(self, request):
-        serializer = CustomersSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=ValueError):
-            user_data = serializer.data.pop('user')
-            print(User.objects.set_.user_data["password"])
-
-        return Response(serializer.error_messages,
-                        status=status.HTTP_400_BAD_REQUEST)
-
-
-class LoginCustomer(APIView):
-    permission_classes = ()
-
-    def post(self, request,):
-        print(request.data.items())
-        username = request.data.get("username")
-        password = request.data.get("password")
-        print(username,password)
-        user = authenticate(username=username, password=password)
-        print(user)
-        if user:
-            customer = User.objects.select_related('customer').get(username=user).customer
-            basket = customer.basket_set.all()[0]
-            if not request.session.get('basket_id'):
-                request.session['basket_id'] = basket.id
-                request.session['customer_id'] = customer.id
-                return Response({"token": user.auth_token.key, "id": customer.id})
-            if request.session.get('basket_id'):
-                Order.objects.filter(basket_id=request.session.get('basket_id')).update(basket_id=basket.id)
-                return Response({"token": user.auth_token.key, "id": customer.id})
-            # print('session.items()',request.session.keys())
-            # return Response({"token": user.auth_token.key})
-        else:
-            return Response({"error": "Wrong Credentials"}, status=status.HTTP_400_BAD_REQUEST)
+# class TESTPermission(APIView):
+#     # permission_classes = [IsAuthenticated]
+#
+#     def get(self, request):
+#         # request.session['order'] = []
+#         # request.session['order'].append(('homa', 2))
+#         print(dict(request.session))
+#         # print(request.session.session_key)
+#         # print(request.session['order'])
+#         # print(bool(request.session.get('basket_id')))
+#         print(request.user.is_anonymous)
+#         print(request.user.id)
+#         print(request.user)
+#         print(request.user.auth_token)
+#         print(request.auth)
+#         return Response('Вы авторизированный пользователь.')
+#
+#
+# class create_customer_test(APIView):
+#     authentication_classes = ()
+#     permission_classes = ()
+#     def post(self, request):
+#         serializer = CustomersSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=ValueError):
+#             user_data = serializer.data.pop('user')
+#             print(User.objects.set_.user_data["password"])
+#
+#         return Response(serializer.error_messages,
+#                         status=status.HTTP_400_BAD_REQUEST)
 
 
+# class LoginCustomer(APIView):
+#     permission_classes = ()
+#
+#     def post(self, request,):
+#         print(request.data.items())
+#         username = request.data.get("username")
+#         password = request.data.get("password")
+#         print(username,password)
+#         user = authenticate(username=username, password=password)
+#         print(user)
+#         if user:
+#             customer = User.objects.select_related('customer').get(username=user).customer
+#             basket = customer.basket_set.all()[0]
+#             if not request.session.get('basket_id'):
+#                 request.session['basket_id'] = basket.id
+#                 request.session['customer_id'] = customer.id
+#                 request.COOKIES['user_id'] = customer.id
+#                 print('COOKIE', request.COOKIES['user_id'])
+#                 return Response({"token": user.auth_token.key, "id": customer.id})
+#             if request.session.get('basket_id'):
+#                 Order.objects.filter(basket_id=request.session.get('basket_id')).update(basket_id=basket.id)
+#                 request.COOKIES['user_id'] = customer.id
+#                 print('COOKIE',request.user)
+#                 return Response({"token": user.auth_token.key, "id": customer.id})
+#             # print('session.items()',request.session.keys())
+#             # return Response({"token": user.auth_token.key})
+#         else:
+#             return Response({"error": "Wrong Credentials"}, status=status.HTTP_400_BAD_REQUEST)
 
-class RegisterCusomer(APIView):
-    authentication_classes = ()
-    permission_classes = ()
-    def post(self, request):
-        serializer = CustomersSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=ValueError):
-            if check_email(User, serializer):
-                return Response('Пользователь с таким email уже зарегистрирован',
-                                status=status.HTTP_400_BAD_REQUEST)
-            user_data = serializer.data.pop('user')
-            user = UserSerializer.create(UserSerializer(), validated_data=user_data)
-            print(f'USER CREATE {user}')
-            if request.session.get('basket_id') and request.session.get('customer_id'):
-                Customer.objects.filter(id=request.session['customer_id']).update(user=user)
-                customer = Customer.objects.get(id=request.session['customer_id'])
-                print(f'CUSTOMER UPDATE')
-            else:
-                customer, created = Customer.objects.update_or_create(user=user,
-                                                                  phone=serializer.data.pop('phone'))
-                Basket.objects.create(user_id=customer)
-            return Response(f'Register {customer.user.username}', status=status.HTTP_201_CREATED)
-        return Response(serializer.error_messages,
-                        status=status.HTTP_400_BAD_REQUEST)
+
+
+# class RegisterCusomer(APIView):
+#     authentication_classes = ()
+#     permission_classes = ()
+#     def post(self, request):
+#         serializer = CustomersSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=ValueError):
+#             if check_email(User, serializer):
+#                 return Response('Пользователь с таким email уже зарегистрирован',
+#                                 status=status.HTTP_400_BAD_REQUEST)
+#             user_data = serializer.data.pop('user')
+#             user = UserSerializer.create(UserSerializer(), validated_data=user_data)
+#             print(f'USER CREATE {user}')
+#             if request.session.get('basket_id') and request.session.get('customer_id'):
+#                 Customer.objects.filter(id=request.session['customer_id']).update(user=user)
+#                 customer = Customer.objects.get(id=request.session['customer_id'])
+#                 print(f'CUSTOMER UPDATE')
+#             else:
+#                 customer, created = Customer.objects.update_or_create(user=user,
+#                                                                   phone=serializer.data.pop('phone'))
+#                 Basket.objects.create(user_id=customer)
+#             return Response(f'Register {customer.user.username}', status=status.HTTP_201_CREATED)
+#         return Response(serializer.error_messages,
+#                         status=status.HTTP_400_BAD_REQUEST)
 
 
 class Processed(APIView):
@@ -203,32 +202,32 @@ class BasketShow(APIView):
 
 
 
-class ProductsSet(generics.CreateAPIView):
-    serializer_class = ProductsSerializer
+# class ProductsSet(generics.CreateAPIView):
+#     serializer_class = ProductsSerializer
+#
+#
+# class ProductsView(generics.ListAPIView):
+#     serializer_class = ProductsSerializer
+#     queryset = Product.objects.all()
+#     def list(self,request):
+#         queryset = self.get_queryset()
+#         serializer = ProductsSerializer(queryset, many=True)
+#         return Response({'Product': serializer.data})
+#
+#
+# class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     serializer_class = ProductsSerializer
+#     queryset = Product.objects.all()
 
 
-class ProductsView(generics.ListAPIView):
-    serializer_class = ProductsSerializer
-    queryset = Product.objects.all()
-    def list(self,request):
-        queryset = self.get_queryset()
-        serializer = ProductsSerializer(queryset, many=True)
-        return Response({'Product': serializer.data})
-
-
-class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = ProductsSerializer
-    queryset = Product.objects.all()
-
-
-class CustomerCreate(generics.CreateAPIView):
-    serializer_class = CustomersSerializer
-
-
-class CustomerDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = CustomersSerializer
-    queryset = Customer.objects.all()
-    def get(self,request,pk):
-        queryset = self.get_queryset()
-        serializer = CustomersSerializer(queryset.get(pk=pk))
-        return Response({'Customer': serializer.data})
+# class CustomerCreate(generics.CreateAPIView):
+#     serializer_class = CustomersSerializer
+#
+#
+# class CustomerDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     serializer_class = CustomersSerializer
+#     queryset = Customer.objects.all()
+#     def get(self,request,pk):
+#         queryset = self.get_queryset()
+#         serializer = CustomersSerializer(queryset.get(pk=pk))
+#         return Response({'Customer': serializer.data})
