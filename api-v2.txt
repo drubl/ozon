@@ -30,13 +30,18 @@ GET /api/products Поиск по товарам. Свойство search - по
 
 GET /api/customer/ Получение данных пользователя по id
 POST /api/customer/ Регистрация пользователя login.
-    Свойства:
-    name - Имя
-    surname - Фамилия
-    email - Поча
-    phone - Мобильный телефон
-    birthday - Дата рождения
-    gender - Пол. male-мужской, female-женски
+	{
+	"user": {
+		"username": "user1",
+		"password": "123123123",
+		"email": "manwithcart@ya.ru"
+	},
+	"name": "Вася Петров",
+	"email": "manwithcart@ya.ru",
+	"gender": "Мужской"
+	"phone": "8800534535"
+    "birthday" "2000-01-01"
+	}
 PUT /api/customer/ Изменение данных пользователя. Изменяются отправленные свойства. Названия Свойств те-же, что и при регистрации
 DELETE /customer/ Удаление пользователя
 
