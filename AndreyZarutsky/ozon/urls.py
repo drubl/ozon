@@ -21,7 +21,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 # Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
+# Additionally, we include auth URLs for the browsable API.
 urlpatterns = [
     url('', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
@@ -31,6 +31,6 @@ urlpatterns = [
     path('api/customer/', include('basket.presentation.urls')),
     path('api/customer/', include('customers.presentation.urls')),
     path('api/products/', include('products.presentation.urls')),
-    path('api/login', include('login.urls')),
+    path('api/login', include('auth.presentation.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -7,6 +7,16 @@ from basket.domain.basket_layer import create_customer_basket_order, get_basket,
     add_product_to_basket, show_basket, processed_basket, increase_quantity, delete_product_in_basket
 
 
+from django.conf.urls import url
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Pastebin API')
+
+urlpatterns = [
+    url(r'^$', schema_view)
+]
+
+
 class BasketShow(APIView):
 
     def get(self, request):
