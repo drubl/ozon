@@ -10,7 +10,7 @@ import {Cart} from './cart';
 @Injectable({
   providedIn: 'root'
 })
-export class CardService {
+export class CartService {
   private auth: Auth;
   constructor(auth: Auth, private http: HttpClient) {
   }

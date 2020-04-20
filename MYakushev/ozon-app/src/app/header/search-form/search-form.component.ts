@@ -1,9 +1,9 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
+import {Observable, Subject, Subscription} from 'rxjs';
 import {ProductService, SearchProducts} from '../../product.service';
 import {Product} from '../../product';
 import { debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {Auth} from "../../auth";
 
 
@@ -16,24 +16,32 @@ export class SearchFormComponent implements OnInit {
   @Output() onClickSearchButton: EventEmitter<string> = new EventEmitter<string>();
   products$: Observable<Product[]>;
   private searchTerms = new Subject<string>();
-  constructor(public productService: ProductService, private router: Router, private auth: Auth) { }
-
+  private routeSubscription: Subscription;
+  private searchTitleSubmit;
+  constructor(public productService: ProductService, private router: Router, private auth: Auth, private route: ActivatedRoute) { }
   search(title: string): void {
     this.searchTerms.next(title);
   }
   ngOnInit(): void {
-    this.products$ = this.searchTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap((title: string) => this.productService.searchProducts(title)),
-    );
+    this.routeSubscription = this.route.params.subscribe(params => {
+      this.searchTitleSubmit = params['search'];
+      if (this.searchTitleSubmit === undefined) {
+        return;
+      } else {
+        this.getSearchProducts(this.searchTitleSubmit);
+      }
+    });
   }
-
+  getSearchProducts() {
+    this.productService.searchProducts(this.searchTitleSubmit).subscribe(answer => {
+      console.log('answer', answer);
+      this.onClickSearchButton.emit(this.searchTitleSubmit);
+    });
+  }
 
   searchButtonClick($event: Event, value: string, searchBox: HTMLInputElement) {
     $event.preventDefault();
-
-    this.router.navigate([`products?search=${$event}`]);
+    this.router.navigate(['/search', { search: value }]);
     this.onClickSearchButton.emit(value);
     searchBox.value = '';
   }

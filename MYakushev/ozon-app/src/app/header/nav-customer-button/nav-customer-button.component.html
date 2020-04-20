@@ -1,6 +1,6 @@
 <nav class="nav-customer-button">
   <ul class="nav-customer-button__list">
-    <li *ngIf="!this.auth.id" class="nav-customer-button__item">
+    <li class="nav-customer-button__item" *ngIf="auth.isLogin === 'False' || !auth.isLogin">
       <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="c2d1" data-v-469cfe6c="">
         <g fill="none" fill-rule="evenodd" data-v-469cfe6c="">
           <path d="M0 0h24v24H0z" data-v-469cfe6c=""></path>
@@ -15,7 +15,7 @@
         display: !toggleModal ? 'block' : 'none'
         }"
       ></app-modal-reg>
-    <li *ngIf="this.auth.id" class="nav-customer-button__item">
+    <li class="nav-customer-button__item" *ngIf="auth.isLogin === 'True'">
       <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="c2d1" data-v-469cfe6c="">
         <g fill="none" fill-rule="evenodd" data-v-469cfe6c="">
           <path d="M0 0h24v24H0z" data-v-469cfe6c=""></path>
@@ -35,7 +35,11 @@
             fill="currentColor" fill-rule="nonzero" data-v-469cfe6c=""></path>
         </g>
       </svg>
-      <a class="nav-customer-button__link" routerLink="/cart">Корзина<span>0</span></a>
+      <a class="nav-customer-button__link" routerLink="/cart">Корзина<span>{{this.countProducts}}</span></a>
+    </li>
+    <li class="nav-customer-button__item" *ngIf="auth.isLogin === 'True'">
+      <img src="https://www.svgrepo.com/show/100108/cross-out-mark.svg" alt="" width="25" height="25" style="margin-top: 8px;">
+      <a class="nav-customer-button__link" routerLink="/customer" (click)="authLogout()">Выход</a>
     </li>
   </ul>
 </nav>

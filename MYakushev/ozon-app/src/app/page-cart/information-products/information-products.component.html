@@ -7,12 +7,12 @@
   <div class="information-products__order-info">
     <div class="information-products__order-info--wrap">
       <div class="information-products__order-info__title">Ваша корзина</div>
-      <div class="information-products__order-info__gr">4 товара * 205 гр</div>
+      <div class="information-products__order-info__gr">{{cart.countProducts}} товара * {{cart.totalWeight}} gram</div>
     </div>
 
     <div class="information-products__order-info--wrap">
       <div class="information-products__order-info__title">Общая стоимость</div>
-      <div class="information-products__order-info__price">1 196 Р</div>
+      <div class="information-products__order-info__price">{{cart.totalPrice}} Р</div>
     </div>
   </div>
 </div>

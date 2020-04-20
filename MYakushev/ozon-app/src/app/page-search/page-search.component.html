@@ -12,7 +12,7 @@
 
   <div class="product-item__list">
     <div *ngFor="let product of productsOnPage$" class="product-item__item">
-      <app-product-item [productItem]="product"></app-product-item>
+      <app-product-item [productItem]="product" (cartChange)="info"></app-product-item>
     </div>
   </div>
 

@@ -66,6 +66,7 @@
   margin-bottom: 10px;
 }
 .form_sign_in input[type="text"],
+.form_sign_in input[type="email"],
 .form_sign_in input[type="password"] {
   padding: 5px 10px;
   box-sizing: border-box;
@@ -78,3 +79,5 @@
 .choise_btn-form {
   height: 33px;
 }
+
+
