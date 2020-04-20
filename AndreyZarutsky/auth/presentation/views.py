@@ -24,3 +24,11 @@ class LoginCustomer(APIView):
                 return Response({"token": user.auth_token.key, "id": customer_id})
         else:
             return Response({"error": "Wrong Credentials"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class LogoutCustomer(APIView):
+    def get(self, request):
+        request.session['customer_id'] = ''
+        request.COOKIES['customer_id'] = ''
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
