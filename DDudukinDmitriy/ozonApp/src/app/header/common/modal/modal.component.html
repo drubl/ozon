@@ -1,8 +1,8 @@
 <div class="container">
   <div class="entrance_form" [style.left]="entranceToLeft ? '0':'-252px'">
-<app-entrance (registerEmitter)="registration()" ></app-entrance>
+    <app-entrance (registerEmitter)="registration()"></app-entrance>
   </div>
   <div class="register_form" [style.left]="entranceToLeft ? '-252px':'0'">
-  <app-register (backEmitter)="goBack()"></app-register>
+    <app-register (backEmitter)="goBack()"></app-register>
   </div>
 </div>

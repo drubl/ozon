@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    padding: 30px;
+    padding: 10px;
 }
 .product_to_cart{
     flex: 4;

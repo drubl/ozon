@@ -1,7 +1,7 @@
-import { ProductCard } from './../ProductCard';
+import { ProductCard } from '../../ProductCard';
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ProductService} from "../services/product.service";
+import {ProductService} from "../../services/product.service";
 import {Location} from "@angular/common";
 
 
@@ -28,5 +28,8 @@ public getProductInformation(){
       .subscribe(productItem => {
         this.productItemInformation = productItem;
       })
+  }
+  addToCart(id){
+    this.productService.addItemToCart(id);
   }
 }

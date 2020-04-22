@@ -1,6 +1,7 @@
 .container{
     padding: 30px;
     margin-left: 50px;
+  width: 300px;
 }
 .checkout{
     border: none;
@@ -17,4 +18,4 @@
 .total_count_price{
   display: flex;
   justify-content: space-between;
-}
+  }

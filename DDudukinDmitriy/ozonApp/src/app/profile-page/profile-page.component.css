@@ -21,25 +21,25 @@
     flex:1;
 }
 .change, .save{
-    margin-left: 100px;
     color: #005bff;
     border: none;
     background: none;
     padding: 0;
     cursor: pointer;
 }
-.change_profile, .delete_profile{
+.change_profile, .delete_profile, .exit{
     color: #005bff;
     border: none;
     background: none;
     padding: 0;
     cursor: pointer;
 }
-.delete_profile{
+.delete_profile, .exit{
+  margin-bottom: 20px;
     color:red;
 }
-.telephone_number, .e-mail{
-    margin-top: 20px;
+.telephone_number, .e-mail_change{
+   margin-top: 5px;
 }
 .personal_data{
     margin-top: 50px;

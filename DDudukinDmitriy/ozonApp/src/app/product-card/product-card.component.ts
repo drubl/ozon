@@ -1,6 +1,7 @@
 import { ProductCard } from './../ProductCard';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {UserService} from "../services/user.service";
+import {ProductService} from "../services/product.service";
 
 @Component({
   selector: 'app-product-card',
@@ -14,9 +15,10 @@ export class ProductCardComponent implements OnInit {
 
   productItem: ProductCard;
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
   ngOnInit(): void {
   }
-  public addToCartHandler() {
+  public addToCartHandler(id) {
+    this.productService.addItemToCart(id)
   }
 }

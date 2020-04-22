@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchFormComponent } from './header/common/search-form/search-form.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { ProductInformationComponent } from './product-information/product-information.component';
+import { ProductInformationComponent } from './pages/product-information/product-information.component';
 import { ProfileSideBarComponent } from './profile-page/common/profile-side-bar/profile-side-bar.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SearchPageComponent } from './search-page/search-page.component';
@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './header/common/modal/register/register.component';
 import { AuthenticateComponent } from './header/common/modal/authenticate/authenticate.component';
 import { EntranceComponent } from './header/common/modal/entrance/entrance.component';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { EntranceComponent } from './header/common/modal/entrance/entrance.compo
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 })

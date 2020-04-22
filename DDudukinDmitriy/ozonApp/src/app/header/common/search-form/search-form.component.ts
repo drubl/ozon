@@ -14,17 +14,11 @@ export class SearchFormComponent implements OnInit {
 
   constructor() { }
 
-
-
-
-
   ngOnInit(): void {
   }
-
   public clearSearchInput(): void {
     this.clearRef.nativeElement.value = '';
   }
-
   public searchProduct(text) {
     this.search.emit(text);
   }

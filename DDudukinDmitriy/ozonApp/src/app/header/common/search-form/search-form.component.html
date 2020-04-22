@@ -4,7 +4,10 @@
         <div class="clean" (click)='clearSearchInput()'>
         </div>
     </div>
-    <div class="sumbit-search" routerLink='/product/search'>
+    <div class="sumbit-search"
+         routerLink='/product'
+         [queryParams]="{search: searchInput.value}"
+    >
         <input type="image" id="sumbit-search" (click)='searchProduct(searchInput.value)' src="../assets/magnifier.png">
     </div>
 </div>

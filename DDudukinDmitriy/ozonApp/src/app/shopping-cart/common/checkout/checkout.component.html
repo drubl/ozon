@@ -8,10 +8,29 @@
     <hr>
     <div class="total_count">
       <div class="total_count_price">
-        <strong>Ваша корзина</strong><span style="color: gray; font-size: 10px;"> товара | 250гр</span><br>
+        <div>
+        <strong>Ваша корзина</strong>
+        </div>
+        <div>
+          <span style="color: gray; font-size: 10px;">{{checkOut.countProducts}} товара | {{checkOut.totalWeight}}гр</span><br>
+        </div>
+        </div>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+        <span style=" color: gray; font-size: 10px;">Товары({{checkOut.countProducts}})</span>
+        </div>
+          <div>
+          <strong >{{checkOut.totalPrice}} Р</strong>
+          </div>
       </div>
-        <span style=" color: gray; font-size: 10px;">Товары(4)</span><strong style="margin-left: 225px;">1868 Р</strong>
         <hr>
-        <strong>Общая стоимость</strong><strong style="margin-left: 130px;">1196 Р</strong>
-    </div>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+        <strong>Общая стоимость</strong>
+        </div>
+        <div>
+          <strong>{{checkOut.totalPrice}} Р</strong>
+        </div>
+      </div>
+      </div>
 </div>

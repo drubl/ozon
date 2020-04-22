@@ -24,3 +24,11 @@
 .page_label{
     margin-bottom: 10px;
 }
+.delete_changed{
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: red;
+  margin-left: 20px;
+  font-size: 10px;
+}

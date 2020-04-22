@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UsersCart} from "../../../UsersCart";
+import {CheckOutData} from "../../../UsersCart";
 import {CartService} from "../../../services/cart.service";
 
 @Component({
@@ -8,17 +8,8 @@ import {CartService} from "../../../services/cart.service";
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-@Input() shoppingCartProduct: UsersCart
-  constructor(private cartService: CartService) { }
-  checkOut: any;
+  @Input() checkOut: CheckOutData;
+  constructor() { }
   ngOnInit(): void {
-  this.checkOutData()
-  }
-  checkOutData(){
-    this.cartService.getUserCart()
-      .subscribe(data => {
-        this.checkOut = data;
-        console.log(this.checkOut)
-      })
   }
 }
