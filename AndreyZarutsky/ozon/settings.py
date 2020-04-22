@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'basket.apps.BasketConfig',
     'customers.apps.CustomersConfig',
     'products.apps.ProductsConfig',
+    'rest_framework_swagger',
     'rest_framework',
     'rest_framework.authtoken',
     'django.contrib.admin',

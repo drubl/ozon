@@ -1,8 +1,13 @@
-<div class="container">
-  <h1 class="page-cart__title">Корзина<sup>{{productService.productsCart.length}}</sup></h1>
+<app-header></app-header>
+<div class="container" *ngIf="cart">
+  <h1 class="page-cart__title">Корзина<sup>{{cart.countProducts}}</sup></h1>
 
-  <div class="page-cart__block-wrapper">
-    <app-selected-products class="selected-products"></app-selected-products>
-    <app-information-products class="information-products"></app-information-products>
+  <div class="page-cart__block-wrapper" >
+    <app-selected-products
+      [cart]="cart"
+      (refreshCart)="refreshCart()"
+      class="selected-products"
+    ></app-selected-products>
+    <app-information-products [cart]="cart"  class="information-products"></app-information-products>
   </div>
 </div>

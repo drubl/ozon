@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageCartComponent } from './page-cart/page-cart.component';
-import { PageMainComponent } from './page-main/page-main.component';
+import { PageSearchComponent } from './page-search/page-search.component';
 import { PageProductComponent} from './page-product/page-product.component';
 import { PageCustomerComponent} from './page-customer/page-customer.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/product', pathMatch: 'full' },
+  { path: '', redirectTo: '/search', pathMatch: 'full' },
   { path: 'cart', component: PageCartComponent },
-  { path: 'product', component: PageMainComponent },
-  { path: 'single-product', component: PageProductComponent },
+  { path: 'search', component: PageSearchComponent },
+  { path: 'products/: id', component: PageProductComponent },
   { path: 'customer', component: PageCustomerComponent }
 ];
 

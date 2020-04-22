@@ -58,3 +58,26 @@
   align-items: center;
   border-radius: 50%;
 }
+
+.nav-customer-button__link {
+  cursor: pointer;
+}
+.nav-customer-button__item {
+  position: relative;
+}
+app-modal-reg {
+  position: absolute;
+  bottom: -310px;
+  height: 300px;
+  right: calc(50% - 125px);
+  box-shadow: 0 0 7px rgba(128, 128, 128, 0.4);
+  padding: 20px 30px;
+  width: 250px;
+  border-radius: 7px;
+  transition: box-shadow 0.2s;
+  background-color: #fff;
+  overflow: hidden;
+}
+app-modal-reg:hover {
+  box-shadow: 0 0 7px rgba(128, 128, 128, 0.6);
+}

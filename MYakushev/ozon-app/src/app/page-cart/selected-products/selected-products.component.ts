@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../product.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Cart} from '../../cart';
+import {ProductService} from '../../product.service';
+import {PageCartComponent} from '../page-cart.component';
+import {CartService} from '../../cart.service';
 
 @Component({
   selector: 'app-selected-products',
@@ -7,14 +10,15 @@ import { ProductService } from '../../product.service';
   styleUrls: ['./selected-products.component.css']
 })
 export class SelectedProductsComponent implements OnInit {
-
-  constructor(private productService: ProductService) { }
-  public productCartSum = this.productService.productsCart;
+  @Output() refreshCart: EventEmitter<string> = new EventEmitter<string>();
+  @Input() cart: Cart;
+  constructor(private productService: ProductService, private pageCartComponent: PageCartComponent, private cardService: CartService) { }
   ngOnInit(): void {
-    console.log(this.productService.productsCart);
   }
-  info(): void {
-    console.log('177777');
+  deleteToCart(id: number) {
+    console.log(id);
+    this.productService.deleteProduct(id).subscribe(answer => {
+      console.log('answer', answer);
+    });
   }
-
 }

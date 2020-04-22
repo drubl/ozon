@@ -1,30 +1,40 @@
 import { Product } from './product';
-import { PRODUCTS} from './mock-base-products';
 import {Injectable} from '@angular/core';
-import { Observable, of } from 'rxjs';
+import {from, Observable, of} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {CookieService} from 'ngx-cookie-service';
 
 
-export class Cart {
-  purchase: number[];
-  totalPrice?: number;
-  totalWeight?: number;
-  countPurchase?: number;
+export class SearchProducts {
+  products: Product[];
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  public productsCart: [];
-  private cart: Observable<Cart> = of({purchase: [1, 2]}, {purchase: [1, 2]});
-  constructor() { }
-  addProductToCart(product): any {
-    this.productsCart.push(product);
+  private productsUrl = '/api/products/';
+  private token = this.cookieService.get('csrftoken');
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  searchProducts(title: string): Observable<Product[]> {
+    return this.http.get<SearchProducts>(`${this.productsUrl}?search=${title}`).pipe(map(searchProducts => searchProducts.products));
   }
-  getProducts(): Observable<Product[]> {
-    return of(PRODUCTS);
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.productsUrl}/${id}`);
   }
-  getCart(): Observable<Cart> {
-    return of({purchase: [1, 1]} as Cart);
+  addProduct(id: number) {
+    return this.http.post(`/api/customer/cart/${id}/`, {}, {
+      headers: new HttpHeaders({
+        'X-CSRFToken': this.token
+      })
+    });
+  }
+  deleteProduct(id: number) {
+    return this.http.delete(`/api/customer/cart/${id}/`, {
+      headers: new HttpHeaders({
+        'X-CSRFToken': this.token
+      })
+    });
   }
 }

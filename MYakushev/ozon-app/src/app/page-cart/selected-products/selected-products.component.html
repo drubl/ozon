@@ -5,22 +5,18 @@
   </div>
 
   <ul class="information-products__list">
-    <li *ngFor="let product of productCartSum" class="information-products__item">
+    <li class="information-products__item" *ngFor="let purchase of cart.purchase">
       <input type="checkbox">
       <div class="information-products__item__img"
-           style="background-image: url({{product.imgUrl}})"></div>
+           style="background-image: url({{purchase.product.firstPhoto}});"></div>
       <div class="information-products__item__info">
-        <h4 class="information-products__item__info__title">{{product.title}}</h4>
-        <p class="information-products__item__info__gram">50 грам</p>
-        <button class="information-products__item__info__button">Удалить</button>
+        <h4 class="information-products__item__info__title">{{purchase.product.title}}</h4>
+        <p class="information-products__item__info__gram"></p>
+        <button class="information-products__item__info__button" (click)="deleteToCart(purchase.id)">Удалить</button>
       </div>
-      <div class="information-products__item__price">{{product.price}}</div>
+      <div class="information-products__item__price">{{purchase.product.price}}</div>
       <div class="information-products__item__amount-wrapper">
-        <select name="" id="information-products__item__amount">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
+        {{purchase.count}}
       </div>
     </li>
 

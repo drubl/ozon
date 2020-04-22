@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-price-and-add-cart',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./price-and-add-cart.component.css']
 })
 export class PriceAndAddCartComponent implements OnInit {
-
+  @Input() productPrice;
   constructor() { }
 
   ngOnInit(): void {

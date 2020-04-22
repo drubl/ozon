@@ -1,4 +1,5 @@
-<div class="container">
-  <app-customer-nav></app-customer-nav>
-  <app-customer-info></app-customer-info>
+<app-header></app-header>
+<div class="container" *ngIf="customerInfo">
+  <app-customer-nav [customerInfo]="customerInfo"></app-customer-nav>
+  <app-customer-info [customerInfo]="customerInfo"></app-customer-info>
 </div>

@@ -1,0 +1,51 @@
+<!-- Нужно разбить на 3 компонента -->
+
+<div
+  class="choise"
+  [ngStyle]="{
+  left: toggleLeft ? 0 : '-250px'
+}">
+  <p>Войдите или зарегистрируйтесь</p>
+  <button class="choise_btn" (click)="choiseLeftSignIn()">Войти</button>
+  <button class="choise_btn" (click)="choiseLeftReg()">Регистрация</button>
+</div>
+
+<div
+  class="choise"
+  [ngStyle]="{
+  left: !toggleLeftSignIn ? 0 : '-250px'
+}">
+  <h3>Вход</h3>
+  <form action="#" class="form_sign_in" (submit)="signIn($event)">
+    <label>
+      <input [(ngModel)]="login" placeholder="Логин или Email" type="text" name="name">
+    </label>
+    <label>
+      <input [(ngModel)]="password" type="password" placeholder="Пароль" name="password">
+    </label>
+    <button class="choise_btn choise_btn-form" type="submit" (click)="signIn($event)">Войти</button>
+  </form>
+  <button class="choise_btn choise_btn-back" (click)="choiseBack()">Назад</button>
+</div>
+
+<div
+  class="choise"
+  [ngStyle]="{
+  left: !toggleLeftReg ? 0 : '-250px'
+}">
+  <h3>Регистрация</h3>
+  <form action="#" class="form_sign_in" (submit)="signIn($event)">
+    <label>
+      <input [(ngModel)]="regLogin" placeholder="Введите ваш логин" type="text" name="reg-login">
+    </label>
+    <label>
+      <input [(ngModel)]="regMail" type="email" placeholder="Введи ваш email" name="reg-pass">
+    </label>
+    <label>
+      <input [(ngModel)]="regPassword" type="password" placeholder="Придумайте пароль" name="reg-mail">
+    </label>
+    <button class="choise_btn choise_btn-form" type="submit" (click)="registration($event)">Зарегистрироваться</button>
+  </form>
+  <p>{{regStatus}}</p>
+  <button class="choise_btn choise_btn-back" (click)="choiseBack()">Назад</button>
+</div>
