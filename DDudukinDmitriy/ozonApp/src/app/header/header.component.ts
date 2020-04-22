@@ -12,6 +12,7 @@ import {CookieService} from "ngx-cookie-service";
 })
 export class HeaderComponent implements OnInit {
   @Output() search: EventEmitter<any> = new EventEmitter<any>();
+  entranceToLeft:boolean = true;
   public isLogin: string = this.userService.isLogin;
   modalDisplay: boolean = false;
   constructor(private productService: ProductService,
@@ -23,5 +24,11 @@ export class HeaderComponent implements OnInit {
   }
   showModal(){
     this.modalDisplay = !this.modalDisplay;
+  }
+  registration(){
+    this.entranceToLeft = !this.entranceToLeft;
+  }
+  goBack(){
+    this.entranceToLeft = !this.entranceToLeft;
   }
 }
