@@ -1,0 +1,121 @@
+<app-header></app-header>
+<div class="container">
+  <h1 class="registration__title">Регистрация нового пользователя</h1>
+
+  <form class="registration" [formGroup]="form" (ngSubmit)="onSubmitForm()">
+
+    <div class="registrationCard registrationCard--required">
+      <div class="form-control">
+        <label>Логин*</label><br>
+        <input type="text" placeholder="Логин" formControlName="username">
+
+        <div class="validation"
+             *ngIf="form.get('username') &&
+                    form.get('username').touched"
+        >
+          <small
+            *ngIf="form.get('username').errors?.minlength"
+          >Не меньше {{form.get('username').errors?.minlength.requiredLength}}
+            символов, сейчас символов: {{form.get('username').errors?.minlength.actualLength}}
+          </small>
+          <small
+            *ngIf="form.get('username').errors?.required"
+          >Обязательно поле</small>
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label>Пароль*</label><br>
+        <input type="password" placeholder="Пароль" formControlName="password">
+
+        <div class="validation"
+             *ngIf="form.get('password') &&
+                    form.get('password').touched"
+        >
+          <small
+            *ngIf="form.get('password').errors?.minlength"
+          >Не меньше {{form.get('password').errors?.minlength.requiredLength}}
+            символов, сейчас символов: {{form.get('password').errors?.minlength.actualLength}}
+          </small>
+          <small
+            *ngIf="form.get('password').errors?.required"
+          >Обязательно поле
+          </small>
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label>Email*</label><br>
+        <input type="text" placeholder="Email" formControlName="email">
+
+        <div class="validation"
+             *ngIf="form.get('email') &&
+                    form.get('email').touched"
+        >
+          <small
+            *ngIf="form.get('email').errors?.uniqEmail"
+          >
+            Email {{form.get('email').value}} занят
+          </small>
+          <small
+            *ngIf="form.get('email').errors?.email"
+          >
+            Неправильный формат ввода email
+          </small>
+          <small
+            *ngIf="form.get('email').errors?.required"
+          >
+            Обязательно поле
+          </small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="registrationCard">
+      <div class="form-control">
+        <label>Имя польностью</label><br>
+        <input type="text" placeholder="ФИО">
+
+        <div class="validation"></div>
+      </div>
+
+      <div class="form-control">
+        <label>Номер телефона</label><br>
+        <input type="text" placeholder="Без +7 или 8 вначале">
+
+        <div class="validation"></div>
+      </div>
+
+      <div class="form-control">
+        <label>Дата рождения</label><br>
+        <input type="text" placeholder="в виде: YYYY-MM-DD">
+
+        <div class="validation"></div>
+      </div>
+    </div>
+
+    <div class="registrationCard">
+      <div class="form-control">
+        <label style="margin-right:10px;">Пол</label>
+        <select>
+          <option value="male">Мужской</option>
+          <option value="female">Женский</option>
+        </select>
+
+        <div class="form-control">
+          <input type="text" placeholder="Пол">
+        </div>
+        <button class="btn" type="button">Выбрать пол</button>
+
+        <div class="validation"></div>
+      </div>
+    </div>
+
+
+    <button class="btn btn__registration" type="submit" [disabled]="form.invalid">Зарегистрироваться</button>
+
+  </form>
+</div>
+
+
