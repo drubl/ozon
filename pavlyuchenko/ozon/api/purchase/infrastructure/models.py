@@ -6,7 +6,7 @@ class Purchase(models.Model):
     count = models.IntegerField('Количество')
 
     def get_price(self):
-        return self.product.price * self.count
+        return self.product.get_price() * self.count
     
     def get_weight(self):
         return self.product.weight * self.count
