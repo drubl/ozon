@@ -1,11 +1,9 @@
 from django.contrib import admin
 
-from api.models import (
-    Product,
-    Cart,
-    Customer,
-    Purchase
-)
+from api.cart.infrastructure.models import Cart
+from api.customer.infrastructure.models import Customer
+from api.purchase.infrastructure.models import Purchase
+from api.product.infrastructure.models import Product
 
 admin.site.register(Cart)
 admin.site.register(Customer)

@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
-from api.views import ProductView
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('api.urls')),
+    path('api/', include('api.product.presentation.urls')),
+    path('api/', include('api.customer.presentation.urls')),
+    path('api/', include('api.cart.presentation.urls')),
+    path('api/', include('api.user.presentation.urls')),
+    path('api/', include('api.purchase.presentation.urls')), #unuse
 ]
