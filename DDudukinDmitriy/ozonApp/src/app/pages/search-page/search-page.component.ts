@@ -1,6 +1,6 @@
-import { ProductService } from '../../services/product.service';
-import { ProductCard } from '../../ProductCard';
-import { Component, OnInit } from '@angular/core';
+import {ProductService} from '../../services/product.service';
+import {ProductCard} from '../../ProductCard';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
@@ -11,13 +11,13 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class SearchPageComponent implements OnInit {
   products: ProductCard[];
   inputQueryParam: string;
-  addedProductsToCart: ProductCard[];
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params:Params)=>{
+    this.route.queryParams.subscribe((params: Params) => {
       this.inputQueryParam = params.search;
     })
     this.searchHandler(this.inputQueryParam)
@@ -29,6 +29,8 @@ export class SearchPageComponent implements OnInit {
         this.products = products.products;
       });
   }
-  public addToCartHandler(event) {
+
+  public addToCartHandler(id) {
+    this.productService.addItemToCart(id)
   }
 }

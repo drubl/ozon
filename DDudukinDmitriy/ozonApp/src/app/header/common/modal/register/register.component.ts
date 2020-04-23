@@ -8,6 +8,7 @@ import {UserService} from "../../../../services/user.service";
 })
 export class RegisterComponent implements OnInit {
   @Output() backEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() onRegistrationUser: EventEmitter<any> = new EventEmitter<any>();
   public email: string;
   public password: string;
   public username: string;
@@ -17,13 +18,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  registrationUser(){
-    this.userService.registerUser({
+
+  registrationUser() {
+    const userRegistrationData = {
       email: this.email,
       password: this.password,
       username: this.username
-    })
+    }
+    this.onRegistrationUser.emit(userRegistrationData)
   }
+
   goToBack() {
     this.backEmitter.emit();
   }

@@ -2,31 +2,33 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserService} from "../../../../services/user.service";
 
 @Component({
-  selector: 'app-entrance',
-  templateUrl: './entrance.component.html',
-  styleUrls: ['./entrance.component.css']
+    selector: 'app-entrance',
+    templateUrl: './entrance.component.html',
+    styleUrls: ['./entrance.component.css']
 })
 export class EntranceComponent implements OnInit {
-  @Output() registerEmitter: EventEmitter<any> = new EventEmitter<any>();
-  username: string = '';
-  password: string = '';
+    @Output() onRegistrationFromEntrance: EventEmitter<any> = new EventEmitter<any>();
+    @Output() onEntrance: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private userService: UserService) {
-  }
+    username: string = '';
+    password: string = '';
 
-  ngOnInit(): void {
-  }
+    constructor(private userService: UserService) {
+    }
 
-  public entrance() {
-    this.userService.getUserId({
-      username: this.username,
-      password: this.password
-    }).subscribe(id => {
-      window.location.reload()
-    })
-  }
+    ngOnInit(): void {
+    }
 
-  public register(): void {
-    this.registerEmitter.emit()
-  }
+    entranceEmitter() {
+        const loginPassword = {
+            username: this.username,
+            password: this.password
+        }
+        this.onEntrance.emit(loginPassword);
+    }
+
+    public register(): void {
+        this.onRegistrationFromEntrance.emit()
+    }
 }
+

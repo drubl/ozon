@@ -1,4 +1,4 @@
-import { ProductCard } from '../../ProductCard';
+import {ProductCard} from '../../ProductCard';
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../services/product.service";
@@ -15,21 +15,24 @@ export class ProductInformationComponent implements OnInit {
 
   constructor(
     private  route: ActivatedRoute,
-    private productService:ProductService,
+    private productService: ProductService,
     private location: Location
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getProductInformation();
   }
-public getProductInformation(){
+
+  public getProductInformation() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productService.getProductItem(id)
       .subscribe(productItem => {
         this.productItemInformation = productItem;
       })
   }
-  addToCart(id){
+
+  addToCart(id) {
     this.productService.addItemToCart(id);
   }
 }

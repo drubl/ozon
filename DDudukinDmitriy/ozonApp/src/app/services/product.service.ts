@@ -1,7 +1,7 @@
-import { ProductCard } from './../ProductCard';
-import { Injectable } from '@angular/core';
+import {ProductCard} from './../ProductCard';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import {CookieService} from "ngx-cookie-service";
 
 export class Products {
@@ -15,7 +15,13 @@ export class Products {
 
 export class ProductService {
   public token = this.cookieService.get('csrftoken')
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  public headersToken = new HttpHeaders({
+    'X-CSRFToken': this.token
+  })
+
+  constructor(private http: HttpClient, private cookieService: CookieService) {
+  }
+
   searchProduct(event): Observable<Products> {
     return this.http.get<Products>('/api/products', {
       params: new HttpParams().set('search', event)
@@ -26,19 +32,17 @@ export class ProductService {
     return this.http.get<ProductCard>(`/api/products/${id}`);
   }
 
-  addItemToCart(id){
+  addItemToCart(id) {
     this.http.post(`api/customer/cart/${id}/`, {}, {
-      headers: new HttpHeaders({
-        'X-CSRFToken': this.token
-      })
+      headers: this.headersToken
     })
-      .subscribe(item =>{})
+      .subscribe()
   }
-  deleteProductItem(id){
-    this.http.delete(`/api/customer/cart/${id}/`,{
-      headers: new HttpHeaders({
-        'X-CSRFToken': this.token
-      })
+
+
+  deleteProductItem(id) {
+    this.http.delete(`/api/customer/cart/${id}/`, {
+      headers: this.headersToken
     }).subscribe()
   }
 }

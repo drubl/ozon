@@ -1,40 +1,41 @@
 import {Component, Input, OnInit,} from '@angular/core';
 
-import { ProductCardComponent } from '../../product-card/product-card.component'
+import {ProductCardComponent} from '../../product-card/product-card.component'
 import {CartService} from "../../services/cart.service";
 import {CheckOutData, UsersCart} from "../../UsersCart";
+import {ProductService} from "../../services/product.service";
+
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  isActive:boolean = false;
+  isActive: boolean = false;
   checkOut: CheckOutData;
   userCartProducts: UsersCart[];
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private productService: ProductService) {
   }
 
   ngOnInit(): void {
-    this.getCheckOutData();
-    this.getCart()
+    this.getCart();
   }
 
   getCart() {
-    this.cartService.getUserCart()
-      .subscribe(cart => {
-        this.userCartProducts = cart.purchase;
-      })
-  }
-
-  getCheckOutData() {
     this.cartService.getCheckOutData()
       .subscribe(checkOut => {
         this.checkOut = checkOut;
+        this.userCartProducts = checkOut.purchase
       })
   }
-  checkAll(){
+
+  deleteProductFromCart(id) {
+    this.productService.deleteProductItem(id)
+  }
+
+  checkAll() {
     this.isActive = !this.isActive;
   }
 }
