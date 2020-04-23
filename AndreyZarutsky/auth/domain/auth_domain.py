@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 def update_login_orders(customer_id: int, basket_id: int):
     customer = get_customer(customer_id)
-    basket = customer.basket_set.get()
+    # basket = customer.basket_set.get()
     Order.objects.filter(basket_id=basket_id).update(basket_id=basket_id)
 
 

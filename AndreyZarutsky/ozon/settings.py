@@ -34,9 +34,9 @@ INSTALLED_APPS = [
     'basket.apps.BasketConfig',
     'customers.apps.CustomersConfig',
     'products.apps.ProductsConfig',
-    'rest_framework_swagger',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,7 +60,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.permissions.IsAuthenticated',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 ROOT_URLCONF = 'ozon.urls'
@@ -140,3 +141,12 @@ STATIC_URL = '/static/'
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }'''
+
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
+    'USE_SESSION_AUTH': True,
+    'DOC_EXPANSION': 'list',
+    'APIS_SORTER': 'alpha',
+    'SHOW_REQUEST_HEADERS': True
+}
