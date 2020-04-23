@@ -6,17 +6,26 @@
         <app-search-form (search)='searchHandler($event)'></app-search-form>
     </div>
     <div class="authorization-and-card">
-        <div class="registration">
+        <div class="registration" *ngIf="isLogin == 'False'">
             <a class="header_links" (click) = 'showModal()'>
                 <img id="registration-logo" src="../assets/man.png" alt=""><br>
-                <span>Регистрация</span>
+                <span>Вход</span>
             </a>
-              <app-modal [style.display]="modalDisplay ? 'block':'none'"></app-modal>
+                <div class="container_modal" [style.display]="modalDisplay ? 'block':'none'">
+                  <app-modal>
+                  <div class="entrance_form" [style.left]="entranceToLeft ? '0':'-252px'">
+                    <app-entrance (registerEmitter)="registration()"></app-entrance>
+                  </div>
+                  <div class="register_form" [style.left]="entranceToLeft ? '-252px':'0'">
+                    <app-register (backEmitter)="goBack()"></app-register>
+                  </div>
+                  </app-modal>
+                </div>
         </div>
-        <div class="authorization">
+        <div class="authorization" *ngIf="isLogin == 'True'">
             <a class="header_links" routerLink='/profile'>
                 <img id="authorization-logo" src="../assets/man.png" alt=""><br>
-                <span>Дмитрий</span>
+                <span>Профиль</span>
             </a>
         </div>
         <div class="shopping-card">

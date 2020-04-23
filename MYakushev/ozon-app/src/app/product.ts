@@ -8,7 +8,7 @@ export class Product {
 }
 export class Products {
   id: number;
-  product: Product[];
+  product: Product;
   count: number;
   price: number;
   weight: number;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {UsersCart} from "../UsersCart";
+import {CheckOutData, UsersCart} from "../UsersCart";
 
 export class UserCartProduct{
   purchase: UsersCart[]
@@ -12,6 +12,9 @@ export class UserCartProduct{
 export class CartService {
   constructor(private http:HttpClient) { }
   getUserCart():Observable<UserCartProduct>{
-    return this.http.get<UserCartProduct>('/api/customer/1/cart/')
+   return this.http.get<UserCartProduct>('/api/customer/cart/')
+  }
+  getCheckOutData():Observable<CheckOutData>{
+    return this.http.get<CheckOutData>('/api/customer/cart/')
   }
 }

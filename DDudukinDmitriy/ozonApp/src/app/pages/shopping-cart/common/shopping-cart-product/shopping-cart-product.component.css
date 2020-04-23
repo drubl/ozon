@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    padding: 10px;
+}
+.product_to_cart{
+    flex: 4;
+}
+.product_list{
+    list-style: none;
+}
+.delete_changed, .delete_product{
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: red;
+    margin-left: 20px;
+    font-size: 10px;
+}
+.image_of_product{
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex: 1;
+}
+.general_information_of_product{
+    display: flex;
+    flex-direction:row;
+}
+.product_title{
+    flex: 1;
+}
+.price{
+    flex: 1;
+}
+.select{
+    flex: 1;
+}
+.btn_to_delete{
+    position: relative;
+    top: -70px;
+    left: 200px;
+}

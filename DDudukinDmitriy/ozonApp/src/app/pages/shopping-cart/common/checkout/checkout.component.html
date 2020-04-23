@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="btn_checkout">
+        <button class="checkout">
+            Перейти к оформлению
+        </button>
+    </div>
+    <span class="information">Доступные способы и время доставки можно выбрать при оформлении заказа</span>
+    <hr>
+    <div class="total_count">
+      <div class="total_count_price">
+        <div>
+        <strong>Ваша корзина</strong>
+        </div>
+        <div>
+          <span style="color: gray; font-size: 10px;">{{checkOut.countProducts}} товара | {{checkOut.totalWeight}}гр</span><br>
+        </div>
+        </div>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+        <span style=" color: gray; font-size: 10px;">Товары({{checkOut.countProducts}})</span>
+        </div>
+          <div>
+          <strong >{{checkOut.totalPrice}} Р</strong>
+          </div>
+      </div>
+        <hr>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+        <strong>Общая стоимость</strong>
+        </div>
+        <div>
+          <strong>{{checkOut.totalPrice}} Р</strong>
+        </div>
+      </div>
+      </div>
+</div>

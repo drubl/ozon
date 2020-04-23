@@ -3,7 +3,7 @@ import {Auth} from "../../../auth";
 import {Router} from "@angular/router";
 
 export class CustomerLogin {
-  email: string;
+  username: string;
   password: string | number;
 }
 
@@ -18,6 +18,13 @@ export class ModalRegComponent implements OnInit {
   toggleLeft = true;
   login = '';
   password = '';
+
+  regLogin = '';
+  regPassword = '';
+  regMail = '';
+
+  regStatus: string;
+
   constructor(private auth: Auth, private router: Router) { }
   authId: number;
   ngOnInit(): void {
@@ -45,11 +52,34 @@ export class ModalRegComponent implements OnInit {
       return console.log('Пустая строка');
     }
     const loginCustomer = {
-      email: this.login,
+      username: this.login,
       password: this.password
     };
     this.auth.login(loginCustomer).subscribe(answer => {
       console.log(answer);
+      this.router.navigate(['/cart']);
+      window.location.reload();
+    });
+  }
+  registration($event: Event) {
+    $event.preventDefault();
+    if (!this.regLogin.trim() || !this.regPassword.trim() || !this.regMail.trim()) {
+      return console.log('Пустая строка');
+    }
+    const registrationCustomer = {
+      username: this.regLogin,
+      password: this.regPassword,
+      email: this.regMail
+    };
+    this.auth.registration(registrationCustomer).subscribe(answer => {
+      if (answer) {
+        this.regStatus = 'Регистрация прошла успешно';
+        setTimeout(() => {
+          this.toggleLeftSignIn = false;
+          this.toggleLeftReg = true;
+          this.toggleLeft = false;
+        }, 1200);
+      }
     });
   }
 }

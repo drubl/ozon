@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container">
+  <div class="product_list">
+    <div class="page_label" *ngIf="checkOut">
+        <span style="font-size: 30px;"><strong>Корзина</strong><span class="product_count">{{checkOut.countProducts}}</span></span>
+    </div>
+    <div>
+      <input (click)="checkAll()" id="products_change" type="checkbox" name="check" [(ngModel)]="isActive">
+      <label for="products_change">Выбрать все</label>
+      <button class="delete_changed">Удалить выбранные</button>
+    </div>
+  <ul class="shopping_cart_list">
+    <li class="shopping_cart_list_item" *ngFor="let shoppingCartItem of userCartProducts">
+      <div class="cart">
+        <input type="checkbox" id="" [(ngModel)]="isActive">
+          <app-shopping-cart-product [shoppingCartProduct] = 'shoppingCartItem'></app-shopping-cart-product>
+      </div>
+    </li>
+  </ul>
+  </div>
+  <div class="checkout" *ngIf="checkOut">
+    <app-checkout [checkOut]="checkOut"></app-checkout>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import {Product, Products} from './product';
 
 
 export class Cart {
-  countPurchase: number;
+  countProducts: number;
   id: number;
   is_checkout: boolean;
   purchase: Products[];

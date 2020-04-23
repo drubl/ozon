@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../product';
 import {ProductService} from "../product.service";
-import {Observable, Subject} from "rxjs";
+import {Observable, Subject, Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-page-search',
@@ -9,12 +10,13 @@ import {Observable, Subject} from "rxjs";
   styleUrls: ['./page-search.component.css']
 })
 export class PageSearchComponent implements OnInit {
+
   productsOnPage$: Product[] = [];
   private searchTerms = new Subject<string>();
   nameSearch: string;
   toggleSearchInfo = false;
-
-  constructor(private productService: ProductService) {
+  info: any;
+  constructor(private productService: ProductService, private route: ActivatedRoute) {
   }
   showSearchItems($event: string) {
     this.searchTerms.next($event);
@@ -26,4 +28,5 @@ export class PageSearchComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+
 }

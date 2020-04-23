@@ -1,6 +1,9 @@
 
 
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {ProductService} from "../services/product.service";
+import {UserService} from "../services/user.service";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-header',
@@ -9,8 +12,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() search: EventEmitter<any> = new EventEmitter<any>();
+  entranceToLeft:boolean = true;
+  public isLogin: string = this.userService.isLogin;
   modalDisplay: boolean = false;
-  constructor() { }
+  constructor(private productService: ProductService,
+              private userService: UserService) { }
   ngOnInit(): void {
   }
   searchHandler(event: any) {
@@ -18,5 +24,11 @@ export class HeaderComponent implements OnInit {
   }
   showModal(){
     this.modalDisplay = !this.modalDisplay;
+  }
+  registration(){
+    this.entranceToLeft = !this.entranceToLeft;
+  }
+  goBack(){
+    this.entranceToLeft = !this.entranceToLeft;
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CustomerInfo} from '../../customer.service';
 
 @Component({
   selector: 'app-customer-nav',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-nav.component.css']
 })
 export class CustomerNavComponent implements OnInit {
-
+  @Input() customerInfo: CustomerInfo;
   constructor() { }
 
   ngOnInit(): void {

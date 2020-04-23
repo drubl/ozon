@@ -1,9 +1,9 @@
 <div class="container">
   <div class="register_input">
-    <input type="text" class="register_login"  placeholder="Ваш Email...">
-    <input type="text" class="register_password"  placeholder="Ваш пароль...">
-    <input type="text" class="retype_password"  placeholder="Повторите пароль...">
+    <input type="text" class="register_login" [(ngModel)]="username" placeholder="Ваше имя пользователя...">
+    <input type="text" class="register_email" [(ngModel)]="email" placeholder="Ваш email...">
+    <input type="password" class="register_password" [(ngModel)]="password" placeholder="Ваш пароль...">
   </div>
-  <button class="register_btn">Зарегестрироваться</button><br>
+  <button class="register_btn" (click)="registrationUser()">Зарегестрироваться</button><br>
   <button class="back" (click)="goToBack()">Назад</button>
 </div>

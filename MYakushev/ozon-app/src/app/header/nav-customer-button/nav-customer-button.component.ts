@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Cart, ProductService} from '../../product.service';
+import {ProductService} from '../../product.service';
 import {Observable, of} from 'rxjs';
 import {Auth} from "../../auth";
+import {CookieService} from 'ngx-cookie-service';
+import {Router} from '@angular/router';
+import {CartService} from '../../cart.service';
 
 @Component({
   selector: 'app-nav-customer-button',
@@ -10,9 +13,21 @@ import {Auth} from "../../auth";
 })
 export class NavCustomerButtonComponent implements OnInit {
   toggleModal = true;
-  constructor(private productService: ProductService, public auth: Auth) {
+  public countProducts: number;
+  private token = this.cookieService.get('csrftoken');
+  constructor(private productService: ProductService, public auth: Auth, private cookieService: CookieService, private router: Router, private cardService: CartService) {
   }
   ngOnInit(): void {
+    this.cardService.getProductsCart().subscribe(answer => {
+      this.countProducts = answer.countProducts;
+    });
   }
 
+  authLogout() {
+    this.auth.logout().subscribe(anwser => {
+      console.log(anwser);
+      this.router.navigate(['/search']);
+      window.location.reload();
+    });
+  }
 }

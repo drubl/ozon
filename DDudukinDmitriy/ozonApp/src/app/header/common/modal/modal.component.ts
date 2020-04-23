@@ -7,15 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-entranceToLeft:boolean = true;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
   }
-  registration(){
-    this.entranceToLeft = !this.entranceToLeft;
-  }
-  goBack(){
-    this.entranceToLeft = !this.entranceToLeft;
-  }
-}

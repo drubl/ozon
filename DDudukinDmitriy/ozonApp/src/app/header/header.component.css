@@ -43,3 +43,28 @@
 .header_links:hover{
     color: rgb(69, 113, 235);
 }
+.container_modal{
+  background-color: white;
+  position: absolute;
+  display: block;
+  top:70px;
+  right: 170px;
+  width: 250px;
+  height: 270px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.register_form{
+  position: relative;
+  top: -233px;
+  left: -252px;
+  width: 250px;
+  height: 270px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+.entrance_form{
+  position: relative;
+  left: 0;
+}

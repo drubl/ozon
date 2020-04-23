@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProductService} from '../product.service';
-import {CardService} from "../card.service";
-import {HttpClient} from "@angular/common/http";
-import {Auth} from "../auth";
-import {Cart} from "../cart";
-import {Product, Products} from "../product";
+import {CartService} from '../cart.service';
+import {HttpClient} from '@angular/common/http';
+import {Auth} from '../auth';
+import {Cart} from '../cart';
+import {Product, Products} from '../product';
 
 
 @Component({
@@ -15,29 +15,26 @@ import {Product, Products} from "../product";
 
 
 export class PageCartComponent implements OnInit {
-
-  constructor(public productService: ProductService, private cardService: CardService, private http: HttpClient, private auth: Auth) {
+  constructor(public productService: ProductService, private cardService: CartService, private http: HttpClient, private auth: Auth) {
   }
+
   cart: Cart;
   productsCartInfo: Products[];
-  // productsCart: Product[];
 
   ngOnInit(): void {
-    this.getCart(this.auth.id);
+    this.getCart();
   }
 
-  getCart(id) {
-    if (!id) {
-      console.log('Пользователь не вошел');
-    } else {
-      this.cardService.getProductsCart(id).subscribe(cart => {
-          this.cart = cart;
-          this.productsCartInfo = this.cart.purchase;
-          // this.productsCart = this.productsCartInfo;
-          console.log('cart', this.cart);
-          console.log('cartInfo', this.productsCartInfo);
-          // console.log('cart', this.productsCart);
-      });
-    }
+  getCart() {
+    this.cardService.getProductsCart().subscribe(cart => {
+      this.cart = cart;
+      this.productsCartInfo = this.cart.purchase;
+      console.log('cart', this.cart);
+      console.log('cartInfo', this.productsCartInfo);
+    });
+  }
+
+  refreshCart() {
+    console.log('Получилось');
   }
 }
