@@ -4,16 +4,15 @@ from api.product.infrastructure.models import Product
 class ProductSerializer(serializers.ModelSerializer):
     firstPhoto = serializers.CharField(max_length=256, source='first_image')
     secondPhoto = serializers.CharField(max_length=256, source='second_image')
-    category = serializers.CharField(source='category.title')
 
     class Meta:
         model = Product
-        fields = ['id', 'category', 'title', 'description', 'price', 'firstPhoto', 'secondPhoto', 'weight']
+        fields = ['id', 'title', 'description', 'price', 'firstPhoto', 'secondPhoto', 'weight']
 
-    def create(self, validated_data): #TODO delete
+    def create(self, validated_data):
         return Product.objects.create(**validated_data)
 
-    def update(self, instance, validated_data):#TODO delete
+    def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
         instance.description = validated_data.get('description', instance.description)
         instance.price = validated_data.get('price', instance.price)
