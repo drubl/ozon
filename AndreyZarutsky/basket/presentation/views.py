@@ -6,15 +6,7 @@ from basket.serializers import BasketSerializer
 from basket.domain.basket_layer import create_customer_basket_order, get_basket, get_customer,\
     add_product_to_basket, show_basket, processed_basket, increase_quantity, delete_product_in_basket
 
-
-from django.conf.urls import url
-from rest_framework_swagger.views import get_swagger_view
-
-schema_view = get_swagger_view(title='Pastebin API')
-
-urlpatterns = [
-    url(r'^$', schema_view)
-]
+from rest_framework.decorators import api_view, permission_classes, renderer_classes
 
 
 class BasketShow(APIView):
@@ -39,7 +31,7 @@ class Processed(APIView):
 
 
 class AddRemUpdOrder(generics.UpdateAPIView, APIView):
-
+    serializer_class = BasketSerializer
     def post(self, request, product_id):
         resp = add_product_to_basket(product_id,
                                      anonymous=request.user.is_anonymous,

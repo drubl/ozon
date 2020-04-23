@@ -1,0 +1,74 @@
+
+GET /api/products Получение всех товаров
+GET /api/products/id Данные товара по id
+GET /api/products Поиск по товарам. Свойство search - поисковый запрос. Например /products?search=Уточка
+
+поля products:
+	- id
+	- title;
+	- price;
+	- description;
+	- firstPhoto;
+	- secondPhoto;
+	- weight;
+
+поля customer:
+	- id
+	- phone;
+	- email;
+	- password;
+	- name;
+	- birthday;
+	- gender;
+
+поля покупки(purchase):
+	- id
+	- product - словарь с покупкой, его поля написаны выше "поля products"
+	- count
+	- price
+	- weight
+
+GET /api/customer/ Получение данных пользователя по id
+POST /api/customer/ Регистрация пользователя login.
+	{
+	"user": {
+		"username": "user1",
+		"password": "123123123",
+		"email": "manwithcart@ya.ru"
+	},
+	"name": "Вася Петров",
+	"email": "manwithcart@ya.ru",
+	"gender": "Мужской"
+	"phone": "8800534535"
+    "birthday" "2000-01-01"
+	}
+PUT /api/customer/ Изменение данных пользователя. Изменяются отправленные свойства. Названия Свойств те-же, что и при регистрации
+DELETE /customer/ Удаление пользователя
+
+GET /api/customer/cart/ Получение корзины пользователя
+    Поля cart:
+    - purchase Массив покупок
+    - totalPrice Итоговая стоимость
+    - totalWeight Итоговый вес
+    - countPurchases Количество покупок в корзине
+    - countProducts Количество товаров в корзине
+    
+
+POST /api/customer/cart/product_id Добавление покупки product_id в корзину пользователя    	
+DELETE /api/customer/cart/product_id Удаление покупки product_id из корзины пользователя 
+PUT /api/customer/cart/product_id/
+    Свойство count меняет количество товара product_id в корзине пользователя
+POST /api/customer/cart Оформление заказа
+
+POST /api/login/ Вход пользователя - возвращается id пользователя если почта и пароль совпадают
+    Данные:
+    username
+    password
+
+GET  /api/logout/ Выход пользователя
+
+Test user:
+{
+	"username": "user1",
+	"password": "123123123"
+}
