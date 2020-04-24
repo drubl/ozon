@@ -41,6 +41,7 @@ urlpatterns = [
     url('', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'api-documentation', schema_view),
+    path('api/category/', include('categories.presentation.urls')),
     path('api/customer/', include('basket.presentation.urls')),
     path('api/customer/', include('customers.presentation.urls')),
     path('api/products/', include('products.presentation.urls')),
