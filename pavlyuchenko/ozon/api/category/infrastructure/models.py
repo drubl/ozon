@@ -25,3 +25,13 @@ class Category(models.Model):
 
     def __str__(self):
         return f'Категория {self.title}'
+# 
+# class CustomField(models.Model):
+#     category = Category
+#     name = Field
+#     value = CustomFieldValue
+
+# class CustomFieldValue(models.Model):
+#     custom_field = CustomField
+#     product = product
+#     value = CharField

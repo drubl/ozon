@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 
 # from api.product.infrastructure.models import Product
-from api.category.domain.logic import get_category_products
+from api.category.domain.logic import get_category_products, filtering, sorting
 from api.product.presentation.serializers import ProductSerializer
 
 # class CategoryView(APIView):
@@ -15,9 +15,13 @@ from api.product.presentation.serializers import ProductSerializer
 class CategoryDetailView(APIView):
     permission_classes = [AllowAny]
     def get(self, request, category_slug):
-        search_query = request.GET.get('search', '')
+        search_query = request.GET.get('search')
+        filter_dict = request.GET.dict()
+        sorted_fields = request.GET.get('sorted')
         try:
             products = get_category_products(category_slug, search_query)
+            products = filtering(products, filter_dict)
+            products = sorting(products, sorted_fields)
         except ValueError as exc:
             return Response(str(exc))
         serializer = ProductSerializer(products, many=True)

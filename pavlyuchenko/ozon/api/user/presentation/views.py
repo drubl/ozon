@@ -1,4 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -7,6 +9,7 @@ from rest_framework.permissions import AllowAny
 from api.user.domain.logic import add_purchases_from_anonymous_customer, get_anonymous_customer
 from api.customer.presentation.serializers import CustomerSerializer
 from .serializers import UserSerializer
+
 
 
 class RegisterView(APIView):
@@ -78,3 +81,12 @@ class LogoutView(APIView):
         response = Response('OK')
         response.set_cookie('is_login', 'False', 43200)
         return response
+
+class CheckEmailView(APIView):
+    permission_classes = [AllowAny]
+    def get(self, request):
+        email = request.GET.get('email')
+        is_exists = User.objects.filter(email=email).exists()
+        if is_exists:
+            return Response('false')
+        return Response('true')
