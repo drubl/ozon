@@ -1,8 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { ProductCard } from '../../../../ProductCard'
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UsersCart} from "../../../../UsersCart";
-import {ProductService} from "../../../../services/product.service";
-import {CartService} from "../../../../services/cart.service";
+
 @Component({
   selector: 'app-shopping-cart-product',
   templateUrl: './shopping-cart-product.component.html',
@@ -10,12 +8,15 @@ import {CartService} from "../../../../services/cart.service";
 })
 export class ShoppingCartProductComponent implements OnInit {
   @Input() shoppingCartProduct: UsersCart;
-  constructor(private productService: ProductService,
-              private cartService: CartService) { }
+  @Output() onDeleteProductItem: EventEmitter<any> = new EventEmitter<any>()
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-  deleteProductItem(id){
-    this.productService.deleteProductItem(id);
+
+  deleteProductItem(id) {
+    this.onDeleteProductItem.emit(id);
   }
 }

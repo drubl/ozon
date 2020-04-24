@@ -1,7 +1,10 @@
 <app-header (search)='searchHandler($event)'></app-header>
-<!--<p *ngIf='products.length'>По вашему запросу найдено {{products.length}} товаров</p>-->
+<div *ngIf="products"><p *ngIf='products.length'>По вашему запросу найдено {{products.length}} <span
+  *ngIf="products.length < 5; else itemMoreFour">товара</span></p>
+  <ng-template #itemMoreFour>Товаров</ng-template>
+</div>
 <ul class="product_list">
-    <li *ngFor='let product of products'>
-        <app-product-card [product]="product" (addToCart)=addToCartHandler($event)></app-product-card>
-    </li>
+  <li *ngFor='let product of products'>
+    <app-product-card [product]="product" (onAddToCard)=addToCartHandler($event)></app-product-card>
+  </li>
 </ul>

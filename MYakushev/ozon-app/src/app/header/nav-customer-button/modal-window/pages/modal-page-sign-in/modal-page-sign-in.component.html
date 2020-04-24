@@ -1,0 +1,11 @@
+<p>Войдите или зарегистрируйтесь</p>
+<form action="#" class="form_sign_in" (submit)="submitLogIn()">
+  <label>
+    <input [(ngModel)]="login" placeholder="Логин или Email" type="text" name="name">
+  </label>
+  <label>
+    <input [(ngModel)]="password" type="password" placeholder="Пароль" name="password">
+  </label>
+  <button class="choise_btn choise_btn-form" type="submit">Войти</button>
+</form>
+<button class="choise_btn" (click)="clickRegistration()">Регистрация</button>

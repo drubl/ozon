@@ -1,0 +1,15 @@
+<h3>Регистрация</h3>
+<form action="#" class="form_sign_in" (submit)="regEmit()">
+  <label>
+    <input [(ngModel)]="regLogin" placeholder="Введите ваш логин" type="text" name="reg-login">
+  </label>
+  <label>
+    <input [(ngModel)]="regMail" type="email" placeholder="Введи ваш email" name="reg-pass">
+  </label>
+  <label>
+    <input [(ngModel)]="regPassword" type="password" placeholder="Придумайте пароль" name="reg-mail">
+  </label>
+  <button class="choise_btn choise_btn-form" type="submit" style="margin-bottom: 5px">Зарегистрироваться</button>
+  <a routerLink="/registration" class="choise_btn choise_btn-form">Страница регистрации</a>
+</form>
+<button class="choise_btn choise_btn-back" (click)="regBackEmit()">Назад</button>

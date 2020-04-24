@@ -8,10 +8,10 @@
 .side_bar{
     flex: 1;
 }
-.accaunt_information{
+.account_information{
     flex: 3;
 }
-.accaunt{
+.account{
     display: flex;
 }
 .telephone_number_and_e-mail_information{

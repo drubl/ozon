@@ -1,15 +1,14 @@
 <div class="container">
-    <div class="product_to_cart">
-                <div class="general_information_of_product">
-
-                    <div class='image_of_product' style="background-image: url({{shoppingCartProduct['product'].firstPhoto}})"></div>
-                    <div class="product_title">{{shoppingCartProduct['product'].title}}</div>
-                    <div class="price"><b>{{shoppingCartProduct['product'].price}}</b></div>
-                    <div class='select'> <span>{{shoppingCartProduct.count}}</span></div>
-                </div>
-                <div class="btn_to_delete">
-                    <button class="delete_product" (click)="deleteProductItem(shoppingCartProduct.id)">Удалить</button>
-                </div>
-                <hr>
+  <div class="product_to_cart">
+    <div class="general_information_of_product">
+      <div class='image_of_product' style="background-image: url({{shoppingCartProduct['product'].firstPhoto}})"></div>
+      <div class="product_title">{{shoppingCartProduct['product'].title}}</div>
+      <div class="price"><b>{{shoppingCartProduct['product'].price}}</b></div>
+      <div class='select'><span>{{shoppingCartProduct.count}}</span></div>
     </div>
+    <div class="btn_to_delete">
+      <button class="delete_product" (click)="deleteProductItem(shoppingCartProduct.id)">Удалить</button>
+    </div>
+    <hr>
+  </div>
 </div>
