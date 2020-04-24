@@ -72,3 +72,6 @@ Test user:
 	"username": "user1",
 	"password": "123123123"
 }
+
+GET /api/categories/ Получение всех категорий
+GET /api/category/cat-name/ Получение товаров категории cat-name
