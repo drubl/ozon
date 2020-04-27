@@ -15,13 +15,37 @@ def get_category_products(category_slug, search_query):
     return category.products.all()
 
 def filtering(products, filter_dict):
-    if filter_dict.get('price'):
-        products = products.filter(price=filter_dict.get('price'))
-    elif filter_dict.get('weight'):
-        pass
-    elif filter_dict.get('is_discount'):
-        pass
+    price = filter_dict.get('price')
+    weight = filter_dict.get('weight')
+    is_discount = filter_dict.get('is_discount')
+    products = price_filter(products, price)
+    products = weight_filter(products, weight)
+    if is_discount == 't':
+        products = products.filter(discount__gt=0)
 
+    return products
+
+def price_filter(products, price):
+    if price:
+        price = price.split('-')
+        print(price)
+        if price[0]:
+            products = products.filter(final_price__gte=price[0])
+        try:
+            products = products.filter(final_price__lte=price[1])
+        except IndexError:
+            pass
+    return products
+
+def weight_filter(products, weight):
+    if weight:
+        weight = weight.split('-')
+        if weight[0]:
+            products = products.filter(weight__gte=weight[0])
+        try:
+            products = products.filter(weight__lte=weight[1])
+        except IndexError:
+            pass
     return products
 
 def sorting(products, sorted_fields):
