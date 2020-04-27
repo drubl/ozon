@@ -47,7 +47,8 @@ class PurchaseView(APIView):
 
     def get_customer(self, request):
         if request.user.is_anonymous:
-            if anonymous_customer_id := request.session.get('anon_customer_id'):
+            anonymous_customer_id = request.session.get('anon_customer_id')
+            if anonymous_customer_id:
                 return get_anonymous_customer(anonymous_customer_id)
             else:
                 customer = create_anonymous_customer()

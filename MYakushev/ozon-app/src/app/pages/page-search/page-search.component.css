@@ -1,0 +1,21 @@
+.product-item__search-info {
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+app-product-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px 30px;
+  border-radius: 7px;
+}
+.product-item__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.product-item__item {
+  margin-right: 20px;
+}

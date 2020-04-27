@@ -1,3 +1,5 @@
+from api.customer.infrastructure.models import Customer
+
 def get_anonymous_customer(anonymous_customer_id):
     ''' Получение покупателя из сессии. '''
     anonymous_customer = Customer.objects.get(pk=anonymous_customer_id)

@@ -2,8 +2,12 @@
   <div class="container">
     <app-logo></app-logo>
     <app-search-form
-      (onClickSearchButton)="onClickSearchButton($event)"
+      (onClickSearchSubmit)="searchProducts($event)"
     ></app-search-form>
-    <app-nav-customer-button></app-nav-customer-button>
+    <app-nav-customer-button
+    (onClickLogOut)="logOut()"
+    (onClickLogIn)="logIn($event)"
+    (onClickReg)="registration($event)"
+    ></app-nav-customer-button>
   </div>
 </header>
