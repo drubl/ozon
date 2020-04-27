@@ -1,7 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ProductService} from "../services/product.service";
 import {UserService} from "../services/user.service";
-import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-header',
@@ -13,6 +12,7 @@ export class HeaderComponent implements OnInit {
   entranceModalToLeft: boolean = true;
   public isLogin: string = this.userService.isLogin;
   modalDisplay: boolean = false;
+  modalCategory: boolean = false;
 
   constructor(private productService: ProductService,
               private userService: UserService) {
@@ -29,6 +29,9 @@ export class HeaderComponent implements OnInit {
     this.modalDisplay = !this.modalDisplay;
   }
 
+  showCatalog(){
+    this.modalCategory = !this.modalCategory;
+  }
   registrationFromEntrance() {
     this.entranceModalToLeft = !this.entranceModalToLeft;
   }

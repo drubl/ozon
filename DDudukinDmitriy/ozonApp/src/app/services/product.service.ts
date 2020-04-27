@@ -3,9 +3,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CookieService} from "ngx-cookie-service";
+import {Categories} from "../Categories";
 
 export class Products {
   products: ProductCard[]
+}
+export class CategoriesArray{
+  categories: Categories[]
 }
 
 @Injectable({
@@ -20,6 +24,14 @@ export class ProductService {
   })
 
   constructor(private http: HttpClient, private cookieService: CookieService) {
+  }
+
+  getAllProducts(): Observable<Products> {
+    return this.http.get<Products>('/api/products')
+  }
+
+  getCategories():Observable<CategoriesArray>{
+    return this.http.get<CategoriesArray>('/api/categories')
   }
 
   searchProduct(event): Observable<Products> {

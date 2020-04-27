@@ -11,7 +11,6 @@ export class ProductCardComponent implements OnInit {
   @Output() onAddToCard: EventEmitter<any> = new EventEmitter<any>();
   @Input() product: ProductCard;
 
-  productItem: ProductCard;
 
   constructor() { }
   ngOnInit(): void {

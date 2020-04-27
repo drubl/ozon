@@ -21,6 +21,10 @@ import { RegisterComponent } from './header/common/modal/register/register.compo
 import { AuthenticateComponent } from './header/common/modal/authenticate/authenticate.component';
 import { EntranceComponent } from './header/common/modal/entrance/entrance.component';
 import {CookieService} from "ngx-cookie-service";
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { CategorySideBarComponent } from './pages/home-page/common/category-side-bar/category-side-bar.component';
+import { ModalCategoryComponent } from './header/common/modal/category/modal-category.component';
+import { CategoryItemComponent } from './category-item/category-item.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,10 @@ import {CookieService} from "ngx-cookie-service";
     RegisterComponent,
     AuthenticateComponent,
     EntranceComponent,
+    HomePageComponent,
+    CategorySideBarComponent,
+    ModalCategoryComponent,
+    CategoryItemComponent,
   ],
   imports: [
     FormsModule,

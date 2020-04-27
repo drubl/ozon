@@ -2,6 +2,12 @@
   <div class="logo">
     <a routerLink='/'><img src="../assets/logo.png" alt=""></a>
   </div>
+  <div class="catalog">
+    <button class="catalog-button" (click)="showCatalog()"><b>Каталог</b></button>
+    <div class="categories-modal" [style.display]="modalCategory ? 'block':'none'">
+      <app-modal-category></app-modal-category>
+    </div>
+  </div>
   <div class="search-form">
     <app-search-form (search)='searchHandler($event)'></app-search-form>
   </div>
@@ -20,7 +26,8 @@
             ></app-entrance>
           </div>
           <div class="register_form" [style.left]="entranceModalToLeft ? '-252px':'0'">
-            <app-register (backEmitter)="goBack()" (onRegistrationUser)="registration($event)"></app-register>
+            <app-register (backEmitter)="goBack()" (onRegistrationUser)="registration
+           ($event)"></app-register>
           </div>
         </app-modal>
       </div>

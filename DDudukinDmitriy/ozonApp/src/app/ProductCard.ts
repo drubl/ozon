@@ -6,4 +6,5 @@ export interface ProductCard {
     firstPhoto: string;
     secondPhoto: string;
     weight: number;
+    category: string;
 }

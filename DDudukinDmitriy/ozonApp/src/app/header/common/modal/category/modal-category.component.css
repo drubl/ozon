@@ -1,0 +1,12 @@
+.categories_item_list{
+  list-style: none;
+  padding: 0;
+}
+.categories_item_list li{
+  padding-top:3px;
+}
+.categories_list{
+  width: 100px;
+  height: 200px;
+  background-color: rgb(248, 248, 248);
+}
