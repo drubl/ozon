@@ -6,8 +6,8 @@ class ProductSerializer(serializers.ModelSerializer):
     secondPhoto = serializers.CharField(max_length=256, source='second_image')
     category = serializers.CharField(source='category.title')
     is_discount = serializers.BooleanField()
-    old_price = serializers.IntegerField(source='price')
-    price = serializers.IntegerField(source='get_price')
+    old_price = serializers.IntegerField()
+    price = serializers.IntegerField()
 
     class Meta:
         model = Product
