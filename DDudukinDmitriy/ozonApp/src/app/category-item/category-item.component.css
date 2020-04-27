@@ -1,1 +1,6 @@
-
+.category_link{
+  text-decoration: none;
+}
+.category_link:visited{
+  color: black;
+}

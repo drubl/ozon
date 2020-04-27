@@ -51,6 +51,9 @@ export class ProductService {
       .subscribe()
   }
 
+  getCategoryProducts(category): Observable<ProductCard>{
+    return this.http.get<ProductCard>(`/api/category/${category}`)
+  }
 
   deleteProductItem(id) {
     this.http.delete(`/api/customer/cart/${id}/`, {

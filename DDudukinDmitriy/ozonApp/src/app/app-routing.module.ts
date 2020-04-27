@@ -5,6 +5,7 @@ import {SearchPageComponent} from './pages/search-page/search-page.component';
 import {ShoppingCartComponent} from './pages/shopping-cart/shopping-cart.component';
 import {ProductInformationComponent} from './pages/product-information/product-information.component'
 import {HomePageComponent} from "./pages/home-page/home-page.component";
+import {PageSimpleCategoryComponent} from "./pages/page-simple-category/page-simple-category.component";
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'profile', component: ProfilePageComponent},
   {path: 'product', component: SearchPageComponent},
   {path: 'product/:id', component: ProductInformationComponent},
-  {path: 'home', component: HomePageComponent}
+  {path: 'home', component: HomePageComponent},
+  {path: 'category/:category', component: PageSimpleCategoryComponent}
 ];
 
 @NgModule({

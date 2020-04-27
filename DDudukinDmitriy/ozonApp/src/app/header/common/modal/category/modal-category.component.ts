@@ -18,7 +18,6 @@ public categories: Categories[];
   getCategories(){
     this.productService.getCategories().subscribe(categories =>{
       this.categories = categories.categories;
-      console.log(this.categories)
     })
   }
 }

@@ -1,0 +1,6 @@
+.category_products ul{
+  display: flex;
+}
+.product_list{
+  list-style: none;
+}

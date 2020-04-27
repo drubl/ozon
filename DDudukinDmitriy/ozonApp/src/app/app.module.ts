@@ -18,13 +18,12 @@ import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './header/common/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './header/common/modal/register/register.component';
-import { AuthenticateComponent } from './header/common/modal/authenticate/authenticate.component';
 import { EntranceComponent } from './header/common/modal/entrance/entrance.component';
 import {CookieService} from "ngx-cookie-service";
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { CategorySideBarComponent } from './pages/home-page/common/category-side-bar/category-side-bar.component';
 import { ModalCategoryComponent } from './header/common/modal/category/modal-category.component';
 import { CategoryItemComponent } from './category-item/category-item.component';
+import { PageSimpleCategoryComponent } from './pages/page-simple-category/page-simple-category.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +40,11 @@ import { CategoryItemComponent } from './category-item/category-item.component';
     CheckoutComponent,
     ModalComponent,
     RegisterComponent,
-    AuthenticateComponent,
     EntranceComponent,
     HomePageComponent,
-    CategorySideBarComponent,
     ModalCategoryComponent,
     CategoryItemComponent,
+    PageSimpleCategoryComponent,
   ],
   imports: [
     FormsModule,

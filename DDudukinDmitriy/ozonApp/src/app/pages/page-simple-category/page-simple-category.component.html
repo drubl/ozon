@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="category_products">
+  <ul class="product_list">
+    <li *ngFor='let product of categoryProducts'>
+      <app-product-card [product]="product"></app-product-card>
+    </li>
+  </ul>
+</div>
