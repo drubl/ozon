@@ -1,0 +1,60 @@
+<nav class="nav-customer-button">
+    <ul class="nav-customer-button__list">
+        <li class="nav-customer-button__item">
+            <img class="nav-customer__icon_login" src="../../../../../assets/img/customer-icon.png">
+
+            <a class="nav-customer-button__link modal-login"
+               (mouseenter)="eventMouseEnterModalLogin()"
+               (mouseleave)="eventMouseLeaveModalLogin($event)"
+            >Вход / Рег.
+            </a>
+
+            <app-modal-window
+                    class="modal-login-and-reg"
+                    [ngClass]="{ modalShow: toggleModalLogin }"
+                    (mouseleave)="eventMouseLeaveModalLogin($event)"
+            >
+                <app-modal-page-sign-in
+                        [ngClass]="{modalShow: !displayNoneSignIn}"
+                        (onShowRegHandler)="showModalReg()"
+                ></app-modal-page-sign-in>
+                <app-modal-page-reg
+                        [ngClass]="{modalShow: displayNoneSignIn}"
+                        (showModalLoginHandler)="showModalLogin()"
+                ></app-modal-page-reg>
+            </app-modal-window>
+        </li>
+
+        <li class="nav-customer-button__item">
+            <img class="nav-customer__icon_customer" src="../../../../../assets/img/customer-icon.png" alt="">
+            <a class="nav-customer-button__link modal-customer" routerLink="/customer"
+               (mouseenter)="eventMouseEnterModalCustomer()"
+               (mouseleave)="eventMouseLeaveModalCustomer($event)"
+            >Михаил
+            </a>
+
+            <app-modal-window
+                    class="modal-login-and-reg modal-customer"
+                    [ngClass]="{ modalShow: toggleModalCustomer }"
+                    (mouseleave)="eventMouseLeaveModalCustomer($event)"
+            >
+                <app-modal-page-customer></app-modal-page-customer>
+            </app-modal-window>
+        </li>
+        <li class="nav-customer-button__item nav-customer-button__item_button">
+            <img class="nav-customer__icon_cart" src="../../../../../assets/img/shopping-cart.png" alt="">
+            <a class="nav-customer-button__link modal-cart" routerLink="/cart"
+               (mouseenter)="eventMouseEnterModalCart()"
+               (mouseleave)="eventMouseLeaveModalCart($event)"
+            >Корзина<span>7</span></a>
+
+            <app-modal-window
+                    class="modal-cart"
+                    [ngClass]="{ modalShow: toggleModalCart }"
+                    (mouseleave)="eventMouseLeaveModalCart($event)"
+            >
+                <app-modal-page-cart></app-modal-page-cart>
+            </app-modal-window>
+        </li>
+    </ul>
+</nav>

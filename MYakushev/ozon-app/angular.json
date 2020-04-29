@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ozon-app": {
+    "angular-blog": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,18 +17,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ozon-app",
+            "outputPath": "dist/angular-blog",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -41,6 +45,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -49,11 +54,6 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
             }
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ozon-app:build"
+            "browserTarget": "angular-blog:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ozon-app:build:production"
+              "browserTarget": "angular-blog:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ozon-app:build"
+            "browserTarget": "angular-blog:build"
           }
         },
         "test": {
@@ -88,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ozon-app:serve"
+            "devServerTarget": "angular-blog:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ozon-app:serve:production"
+              "devServerTarget": "angular-blog:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ozon-app"
+  "defaultProject": "angular-blog"
 }

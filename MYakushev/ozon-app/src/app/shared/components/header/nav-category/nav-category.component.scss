@@ -1,0 +1,19 @@
+a {
+  font-size: 13px;
+}
+
+.nav-category__wrap {
+  position: relative;
+}
+.nav-category__wrap app-modal-window {
+  position: absolute;
+  display: none;
+  margin-top: -15px;
+}
+.catalog-modal {
+  left: -45px;
+  margin-top: 20px;
+}
+.modalShow {
+  display: block!important;
+}

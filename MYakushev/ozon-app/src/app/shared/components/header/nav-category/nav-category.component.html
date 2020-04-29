@@ -1,0 +1,14 @@
+<div class="nav-category__wrap">
+    <a
+            class="btn modal-login"
+            (mouseenter)="eventMouseEnterModalCategory()"
+            (mouseleave)="eventMouseLeaveModalCategory($event)"
+    >Каталог</a>
+
+    <app-modal-window class="catalog-modal modal-login"
+                      [ngClass]="{ modalShow: toggleModalCategory }"
+                      (mouseleave)="eventMouseLeaveModalCategory($event)"
+    >
+        <app-modal-page-category></app-modal-page-category>
+    </app-modal-window>
+</div>

@@ -1,0 +1,26 @@
+<div>
+    <h3 class="modal-title">Регистрация</h3>
+    <form [formGroup]="formReg" (ngSubmit)="submitReg()" class="form_sign_in">
+
+        <div class="form-control">
+            <label>
+                <input formControlName="login" placeholder="Введите ваш логин" type="text" name="reg-login">
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label>
+                <input formControlName="email" type="email" placeholder="Введи ваш email" name="reg-pass">
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label>
+                <input formControlName="password" type="password" placeholder="Придумайте пароль" name="reg-mail">
+            </label>
+        </div>
+
+        <button class="choise_btn choise_btn-form" type="submit" [disabled]="formReg">Зарегистрироваться</button>
+    </form>
+    <button class="choise_btn choise_btn-back" (click)="showModalLogin()">Назад</button>
+</div>

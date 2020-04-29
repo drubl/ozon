@@ -1,61 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { LogoComponent } from './header/logo/logo.component';
-import { SearchFormComponent } from './header/search-form/search-form.component';
-import { NavCustomerButtonComponent } from './header/nav-customer-button/nav-customer-button.component';
-import { PageSearchComponent } from './pages/page-search/page-search.component';
-import { ProductItemComponent } from './pages/page-search/product-item/product-item.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PageCartComponent } from './pages/page-cart/page-cart.component';
-import { SelectedProductsComponent } from './pages/page-cart/components/selected-products/selected-products.component';
-import { InformationProductsComponent } from './pages/page-cart/components/information-products/information-products.component';
-import { PageProductComponent } from './pages/page-product/page-product.component';
-import { ProductGalleryComponent } from './pages/page-product/components/product-gallery/product-gallery.component';
-import { PageCustomerComponent } from './pages/page-customer/page-customer.component';
-import { PriceAndAddCartComponent } from './pages/page-product/components/price-and-add-cart/price-and-add-cart.component';
-import { CustomerNavComponent } from './pages/page-customer/components/customer-nav/customer-nav.component';
-import { CustomerInfoComponent } from './pages/page-customer/components/customer-info/customer-info.component';
-import {HttpClientModule} from "@angular/common/http";
-import { ModalWindowComponent } from './header/nav-customer-button/modal-window/modal-window.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ModalPageSignInComponent } from './header/nav-customer-button/modal-window/pages/modal-page-sign-in/modal-page-sign-in.component';
-import { ModalPageRegComponent } from './header/nav-customer-button/modal-window/pages/modal-page-reg/modal-page-reg.component';
-import { PageRegistrationComponent } from './pages/page-registration/page-registration.component';
-
+import { AppComponent } from './app.component';
+import { SearchPageComponent } from './search-page/search-page.component';
+import { CustomerPageComponent } from './customer-page/customer-page.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { ProductComponent } from './shared/components/product/product.component';
+import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { LogoComponent } from './shared/components/header/logo/logo.component';
+import { SearchFormComponent } from './shared/components/header/search-form/search-form.component';
+import { NavCustomerComponent } from './shared/components/header/nav-customer/nav-customer.component';
+import { NavCategoryComponent } from './shared/components/header/nav-category/nav-category.component';
+import { ModalWindowComponent } from './shared/components/modal-window/modal-window.component';
+import { ModalPageSignInComponent } from './shared/components/modal-window/modal-page-sign-in/modal-page-sign-in.component';
+import { ModalPageRegComponent } from './shared/components/modal-window/modal-page-reg/modal-page-reg.component';
+import { ModalPageCartComponent } from './shared/components/modal-window/modal-page-cart/modal-page-cart.component';
+import { ModalPageCustomerComponent } from './shared/components/modal-window/modal-page-customer/modal-page-customer.component';
+import { ModalPageCategoryComponent } from './shared/components/modal-window/modal-page-category/modal-page-category.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchPageComponent,
+    CustomerPageComponent,
+    CartPageComponent,
+    ProductPageComponent,
     HeaderComponent,
+    ProductComponent,
+    MainLayoutComponent,
+    CategoryPageComponent,
+    HomePageComponent,
     LogoComponent,
     SearchFormComponent,
-    NavCustomerButtonComponent,
-    PageSearchComponent,
-    ProductItemComponent,
-    PageCartComponent,
-    SelectedProductsComponent,
-    InformationProductsComponent,
-    PageProductComponent,
-    ProductGalleryComponent,
-    PageCustomerComponent,
-    PriceAndAddCartComponent,
-    CustomerNavComponent,
-    CustomerInfoComponent,
+    NavCustomerComponent,
+    NavCategoryComponent,
     ModalWindowComponent,
     ModalPageSignInComponent,
     ModalPageRegComponent,
-    PageRegistrationComponent,
+    ModalPageCartComponent,
+    ModalPageCustomerComponent,
+    ModalPageCategoryComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

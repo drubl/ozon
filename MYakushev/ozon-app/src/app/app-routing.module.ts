@@ -1,22 +1,32 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PageCartComponent } from './pages/page-cart/page-cart.component';
-import { PageSearchComponent } from './pages/page-search/page-search.component';
-import { PageProductComponent} from './pages/page-product/page-product.component';
-import { PageCustomerComponent} from './pages/page-customer/page-customer.component';
-import {PageRegistrationComponent} from './pages/page-registration/page-registration.component';
+import { Routes, RouterModule } from '@angular/router';
+
+import {MainLayoutComponent} from './shared/components/main-layout/main-layout.component';
+import {CategoryPageComponent} from './category-page/category-page.component';
+import {ProductPageComponent} from './product-page/product-page.component';
+import {SearchPageComponent} from './search-page/search-page.component';
+import {CustomerPageComponent} from './customer-page/customer-page.component';
+import {CartPageComponent} from './cart-page/cart-page.component';
+import {HomePageComponent} from './home-page/home-page.component';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: '/search', pathMatch: 'full' },
-  { path: 'cart', component: PageCartComponent },
-  { path: 'registration', component: PageRegistrationComponent },
-  { path: 'search', component: PageSearchComponent },
-  { path: 'products/: id', component: PageProductComponent },
-  { path: 'customer', component: PageCustomerComponent }
+  {
+    path: '', component: MainLayoutComponent, children: [
+      {path: '', redirectTo: '/', pathMatch: 'full'},
+      {path: '', component: HomePageComponent},
+      {path: 'category', component: CategoryPageComponent},
+      {path: 'category/:name', component: CategoryPageComponent},
+      {path: 'product/:id', component: ProductPageComponent},
+      {path: 'search/:name', component: SearchPageComponent},
+      {path: 'customer', component: CustomerPageComponent},
+      {path: 'cart', component: CartPageComponent},
+    ]
+  }
 ];
 
 @NgModule({
-  exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

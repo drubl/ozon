@@ -1,0 +1,22 @@
+<div>
+    <h3 class="modal-title">Войдите или зарегистрируйтесь</h3>
+    <form class="form_sign_in" [formGroup]="form" (ngSubmit)="submitLogin()">
+
+        <div class="form-control">
+            <label>
+                <input formControlName="email" placeholder="Введите email" type="text" name="name">
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label>
+                <input formControlName="password" type="password" placeholder="Пароль" name="password">
+            </label>
+        </div>
+
+
+
+        <button class="choise_btn choise_btn-form choise_btn-login" type="submit" [disabled]="form.invalid">Войти</button>
+    </form>
+    <button class="choise_btn choise_btn-form choise_btn-reg" (click)="showModalRegistration()">Регистрация</button>
+</div>
