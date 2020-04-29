@@ -14,6 +14,9 @@ class Category(models.Model):
             self.slug = self.create_unique_slug(self.title)
         super(Category, self).save(*args, **kwargs)
 
+    def display_custom_fields(self):
+        return None
+
     def create_unique_slug(self, title):
         slug = slugify(title, allow_unicode=True)
         slug = translate(slug)
@@ -25,13 +28,16 @@ class Category(models.Model):
 
     def __str__(self):
         return f'Категория {self.title}'
-# 
-# class CustomField(models.Model):
-#     category = Category
-#     name = Field
-#     value = CustomFieldValue
 
-# class CustomFieldValue(models.Model):
-#     custom_field = CustomField
-#     product = product
-#     value = CharField
+
+
+class CustomField(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    name = models.CharField('Имя кастомного поля', max_length=64)
+    description = models.TextField('Описание кастомного поля', blank=True)
+    field_type = models.CharField('Тип кастомного поля', blank=True, default='Text', max_length=64)
+
+class CustomFieldValue(models.Model):
+    custom_field = models.ForeignKey(CustomField, on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    value = models.TextField('Значение кастомного поля')

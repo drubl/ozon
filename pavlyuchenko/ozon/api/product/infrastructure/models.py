@@ -11,6 +11,7 @@ class Product(models.Model):
     second_image = models.CharField(max_length=256)
     weight = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='products', null=True)
+    custom_fields = models.ManyToManyField('CustomField', through='CustomFieldValue')
 
     def save(self, *args, **kwargs):
         self.price = self.old_price - self.discount/100*self.price
